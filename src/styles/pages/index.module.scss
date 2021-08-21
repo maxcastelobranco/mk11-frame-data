@@ -1,0 +1,32 @@
+@use "./src/styles/variables" as *;
+
+.container {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: url("/roster-bg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: $yellow;
+    font-family: mkserif, sans-serif;
+    text-transform: uppercase;
+  }
+}
+
+.charactersContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  -webkit-perspective: 920px;
+  perspective: 920px;
+  gap: .5rem;
+  margin: 2rem;
+}

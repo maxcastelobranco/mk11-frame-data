@@ -1,0 +1,49 @@
+@use "src/styles/variables" as *;
+
+.container {
+  display: flex;
+
+  > button + button {
+    margin-left: .5rem;
+  }
+
+  > button {
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $light;
+    padding: .5rem;
+    border: 1px solid hsla(0,0%,100%,.1);
+    border-radius: 2px;
+    position: relative;
+
+    transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      bottom: -12px;
+      right: 50%;
+      transform: translate(50%,-50%) rotate(45deg);
+      border: 1px solid hsla(0,0%,100%,.1);
+      border-top: none;
+      border-left: none;
+      background-color: $yellow;
+      box-shadow: 0 0 12px $yellow;
+      opacity: 0;
+    }
+  }
+}
+
+
+.activeButton {
+  color: $text!important;
+  background-color: $yellow;
+  box-shadow: 0 0 12px $yellow;
+
+  &::before {
+    opacity: 1!important;
+  }
+}
