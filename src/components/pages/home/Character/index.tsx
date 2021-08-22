@@ -41,7 +41,7 @@ const Character: React.FC<CharacterProps> = ({
         {...{ src }}
         objectFit="contain"
         alt={name}
-        quality={100}
+        // quality={100}
         layout="fill"
         className={styles.imgSm}
         {...preventImageDrag}
@@ -50,7 +50,7 @@ const Character: React.FC<CharacterProps> = ({
         src={thumbSrc}
         objectFit="cover"
         alt={name}
-        quality={100}
+        // quality={100}
         layout="fill"
         className={styles.imgLg}
         {...preventImageDrag}
