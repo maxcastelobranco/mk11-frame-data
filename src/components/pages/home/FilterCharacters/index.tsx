@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { CharacterData, characters } from '../../../../utils/data/characters'
+import { CharacterData } from '../../../../utils/data/types'
+import { characters } from '../../../../utils/data/characters'
 import styles from './styles.module.scss'
 import {
   RosterPortions,

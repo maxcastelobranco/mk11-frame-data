@@ -1,13 +1,14 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import { CharacterData } from '../utils/data/types'
 import Header from '../components/pages/home/Header'
 import styles from '../styles/pages/index.module.scss'
-import { CharacterData, characters } from '../utils/data/characters'
+import { characters } from '../utils/data/characters'
 import FilterCharacters from '../components/pages/home/FilterCharacters'
 import { RosterPortions } from '../utils/data/rosterPortions'
 import Character from '../components/pages/home/Character'
 import { AnimatePresence, motion } from 'framer-motion'
-import CustomParticles from '../components/CustomParticles'
+import CustomParticles from '../components/global/CustomParticles'
 
 const Home: NextPage = () => {
   const [rosterPortion, setRosterPortion] =

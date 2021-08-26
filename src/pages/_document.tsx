@@ -23,7 +23,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/Mkseriftallxmedium-76DA.ttf"
+            href="/fonts/mkserif.woff2"
             as="font"
             type="font/ttf"
           />

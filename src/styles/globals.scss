@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "mkserif";
-  src: url("/fonts/Mkseriftallxmedium-76DA.ttf")
+  src: url("/fonts/mkserif.woff2")
 }
 
 html,
@@ -19,7 +19,7 @@ a {
 
 *, *::before, *::after {
   box-sizing: border-box;
-  scrollbar-width: "thin";
+  scrollbar-width: thin;
   scrollbar-color: $yellow $gray-dark;
   ::-webkit-scrollbar {
     width: 8px;

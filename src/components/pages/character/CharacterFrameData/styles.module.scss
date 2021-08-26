@@ -1,0 +1,169 @@
+@use "./src/styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  overflow: hidden;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem .75rem;
+    border-radius: 4px;
+    background: linear-gradient(180deg,transparent,#000);
+    border: 1px solid hsla(0,0%,100%,.1);
+
+    button {
+      font-family: "mkserif", sans-serif;
+      font-size: .75rem;
+      transition: text-shadow 500ms ease, color 500ms ease;
+    }
+
+    > div:last-child {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.frameDataSlideWrapper {
+  flex: 1;
+  display: flex;
+  background: linear-gradient(180deg,transparent,#000);
+  border-radius: 4px;
+  max-height: 90%;
+}
+
+.frameDataSlide {
+  flex: 1;
+  padding: 1rem 2rem 2rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  section:first-child {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.2rem;
+
+    h3:first-child {
+      text-align: center;
+      position: sticky;
+      top: 0;
+      margin: 0;
+      padding-bottom: .6rem;
+    }
+
+    h3 {
+      font-family: mkserif, sans-serif;
+      color: $yellow;
+      font-size: .75rem;
+      margin: 1rem 0;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+
+      li {
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $gray;
+        padding-bottom: .25rem;
+        border-bottom: 1px solid hsla(0,0%,100%,.1);
+        transition: color 250ms ease, text-shadow 250ms ease;
+
+        &:hover {
+          text-shadow: 0 0 8px $gray;
+        }
+
+        &.activeAttack {
+          color: $yellow;
+          text-shadow: 0 0 4px $yellow;
+        }
+        &.complementaryAttack {
+          padding-left: 1rem;
+        }
+      }
+
+      li + li {
+        margin-top: .5rem;
+      }
+    }
+  }
+
+  section:nth-child(2) {
+    display: grid;
+    grid-template-rows: 5% 50% 5% 35%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+      "title1 title1 title1 title1 title1 title1 title1"
+      ". dmg dmg type type type ."
+      "title2 title2 title2 title2 title2 title2 title2"
+      "fd fd fd fd fd fd fd";
+    gap: .6rem;
+
+    .moveDataTitle {
+      grid-area: title1;
+      position: relative;
+      &:after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, transparent, $yellow, transparent);
+        border-radius: 100%;
+      }
+    }
+    .frameDataTitle {
+      grid-area: title2;
+      position: relative;
+      &:after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, transparent, $yellow, transparent);
+        border-radius: 100%;
+      }
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: mkserif, sans-serif;
+      color: $yellow;
+      font-size: .75rem;
+    }
+  }
+
+}
+
+.button {
+    color: $light;
+
+    &:hover {
+      text-shadow: 0 0 8px $yellow;
+    }
+}
+
+.activeButton {
+  color: $yellow;
+
+  &:hover {
+    text-shadow: 0 0 2px $yellow;
+  }
+}

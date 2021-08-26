@@ -1,8 +1,9 @@
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
+import { CharacterData } from '../../../../utils/data/types'
 import styles from './styles.module.scss'
 import { preventImageDrag } from '../../../../utils/helpers/preventImageDrag'
-import { CharacterData } from '../../../../utils/data/characters'
 import { motion, Variants } from 'framer-motion'
 
 interface CharacterProps {
@@ -11,7 +12,7 @@ interface CharacterProps {
 }
 
 const Character: React.FC<CharacterProps> = ({
-  character: { src, thumbSrc, name },
+  character: { src, thumbSrc, name, key },
   index,
 }) => {
   const characterVariants: Variants = {
@@ -29,34 +30,34 @@ const Character: React.FC<CharacterProps> = ({
   }
 
   return (
-    <motion.button
-      className={styles.container}
-      variants={characterVariants}
-      initial="initial"
-      animate="animate"
-      exit="initial"
-      layout
-    >
-      <Image
-        {...{ src }}
-        objectFit="contain"
-        alt={name}
-        // quality={100}
-        layout="fill"
-        className={styles.imgSm}
-        {...preventImageDrag}
-      />
-      <Image
-        src={thumbSrc}
-        objectFit="cover"
-        alt={name}
-        // quality={100}
-        layout="fill"
-        className={styles.imgLg}
-        {...preventImageDrag}
-      />
-      <span className={styles.characterName}>{name}</span>
-    </motion.button>
+    <Link href={`/character/${key}`} passHref>
+      <motion.button
+        className={styles.container}
+        variants={characterVariants}
+        initial="initial"
+        animate="animate"
+        exit="initial"
+        layout
+      >
+        <Image
+          {...{ src }}
+          objectFit="contain"
+          alt={name}
+          layout="fill"
+          className={styles.imgSm}
+          {...preventImageDrag}
+        />
+        <Image
+          src={thumbSrc}
+          objectFit="cover"
+          alt={name}
+          layout="fill"
+          className={styles.imgLg}
+          {...preventImageDrag}
+        />
+        <span className={styles.characterName}>{name}</span>
+      </motion.button>
+    </Link>
   )
 }
 

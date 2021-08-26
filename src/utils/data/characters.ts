@@ -1,94 +1,4 @@
-type CharKeys =
-  | 'rambo'
-  | 'rain'
-  | 'mileena'
-  | 'robocop'
-  | 'sheeva'
-  | 'fujin'
-  | 'spawn'
-  | 'the-joker'
-  | 'jade'
-  | 'erron-black'
-  | 'kabal'
-  | 'kung-lao'
-  | 'sub-zero'
-  | 'scorpion'
-  | 'cetrion'
-  | 'frost'
-  | 'baraka'
-  | 'raiden'
-  | 'shao-kahn'
-  | 'd-vorah'
-  | 'jax-briggs'
-  | 'geras'
-  | 'kano'
-  | 'terminator'
-  | 'nightwolf'
-  | 'cassie-cage'
-  | 'kotal-kahn'
-  | 'skarlet'
-  | 'sonya-blade'
-  | 'shang-tsung'
-  | 'johnny-cage'
-  | 'noob-saibot'
-  | 'kollector'
-  | 'kitana'
-  | 'jacqui-briggs'
-  | 'liu-kang'
-  | 'sindel'
-
-type CharNames =
-  | 'rambo'
-  | 'rain'
-  | 'mileena'
-  | 'robocop'
-  | 'sheeva'
-  | 'fujin'
-  | 'spawn'
-  | 'the joker'
-  | 'jade'
-  | 'erron black'
-  | 'kabal'
-  | 'kung lao'
-  | 'sub-zero'
-  | 'scorpion'
-  | 'cetrion'
-  | 'frost'
-  | 'baraka'
-  | 'raiden'
-  | 'shao kahn'
-  | "d'vorah"
-  | 'jax briggs'
-  | 'geras'
-  | 'kano'
-  | 'terminator'
-  | 'nightwolf'
-  | 'cassie cage'
-  | 'kotal kahn'
-  | 'skarlet'
-  | 'sonya blade'
-  | 'shang tsung'
-  | 'johnny cage'
-  | 'noob saibot'
-  | 'kollector'
-  | 'kitana'
-  | 'jacqui briggs'
-  | 'liu kang'
-  | 'sindel'
-
-export type AvailableOn =
-  | 'kombat pack 2'
-  | 'kombat pack 1'
-  | 'aftermath expansion'
-  | 'base game'
-
-export interface CharacterData {
-  key: CharKeys
-  name: CharNames
-  src: string
-  thumbSrc: string
-  availableOn: AvailableOn
-}
+import { CharacterData } from './types'
 
 export const characters: CharacterData[] = [
   {
@@ -134,17 +44,17 @@ export const characters: CharacterData[] = [
     availableOn: 'kombat pack 2',
   },
   {
-    key: 'johnny-cage',
-    src: '/characters/johnny-cage.png',
-    thumbSrc: '/characterThumbs/johnny-cage.png',
-    name: 'johnny cage',
-    availableOn: 'kombat pack 1',
-  },
-  {
     key: 'nightwolf',
     src: '/characters/nightwolf.png',
     thumbSrc: '/characterThumbs/nightwolf.png',
     name: 'nightwolf',
+    availableOn: 'kombat pack 1',
+  },
+  {
+    key: 'shang-tsung',
+    src: '/characters/shang-tsung.png',
+    thumbSrc: '/characterThumbs/shang-tsung.png',
+    name: 'shang tsung',
     availableOn: 'kombat pack 1',
   },
   {
@@ -247,6 +157,13 @@ export const characters: CharacterData[] = [
     availableOn: 'base game',
   },
   {
+    key: 'johnny-cage',
+    src: '/characters/johnny-cage.png',
+    thumbSrc: '/characterThumbs/johnny-cage.png',
+    name: 'johnny cage',
+    availableOn: 'base game',
+  },
+  {
     key: 'kabal',
     src: '/characters/kabal.png',
     thumbSrc: '/characterThumbs/kabal.png',
@@ -314,13 +231,6 @@ export const characters: CharacterData[] = [
     src: '/characters/scorpion.png',
     thumbSrc: '/characterThumbs/scorpion.png',
     name: 'scorpion',
-    availableOn: 'base game',
-  },
-  {
-    key: 'shang-tsung',
-    src: '/characters/shang-tsung.png',
-    thumbSrc: '/characterThumbs/shang-tsung.png',
-    name: 'shang tsung',
     availableOn: 'base game',
   },
   {

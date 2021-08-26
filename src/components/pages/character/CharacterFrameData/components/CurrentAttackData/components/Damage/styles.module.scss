@@ -1,0 +1,26 @@
+@use "../../../../../../../../styles/variables" as *;
+
+.container {
+  grid-area: dmg;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+
+  li {
+    text-align: center;
+
+    & + li {
+      margin-top: 1.25rem;
+    }
+
+    p {
+      margin: 0 0 .8rem;
+      font-weight: 700;
+      color: $gray;
+    }
+    span {
+      color: $yellow;
+    }
+  }
+}

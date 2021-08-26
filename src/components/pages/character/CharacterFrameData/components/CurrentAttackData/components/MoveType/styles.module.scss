@@ -1,0 +1,15 @@
+@use "../../../../../../../../styles/variables" as *;
+
+.container {
+  grid-area: type;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  p {
+    font-weight: 700;
+    color: $gray;
+  }
+  span {
+    color: $yellow;
+  }
+}
