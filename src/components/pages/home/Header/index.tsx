@@ -1,13 +1,18 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '../../../svg/Logo'
 import styles from './styles.module.scss'
 
 const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <Link href="/" passHref>
-        <Logo />
+        <Image
+          src="/frame-data-logo.png"
+          width={240}
+          height={72}
+          objectFit="contain"
+        />
       </Link>
     </header>
   )

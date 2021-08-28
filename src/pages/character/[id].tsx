@@ -7,6 +7,7 @@ import styles from '../../styles/pages/character.module.scss'
 import frameData from '../../utils/data/frameData.json'
 import { preventImageDrag } from '../../utils/helpers/preventImageDrag'
 import CharacterFrameData from '../../components/pages/character/CharacterFrameData'
+import { NextSeo } from 'next-seo'
 
 const Character: NextPage = () => {
   const { query } = useRouter()
@@ -17,11 +18,19 @@ const Character: NextPage = () => {
   }
 
   const currentCharacterName = id.replace('-', ' ')
+  const currentCharacterCapitalized = currentCharacterName
+    .split(' ')
+    .map((name) => {
+      const lowerCaseName = name.toLowerCase()
+      return name.charAt(0).toUpperCase() + lowerCaseName.slice(1)
+    })
+    .join(' ')
   const currentCharacterSrc = `/characters/${id}.png`
   const currentCharacterFrameData = frameData[id] as FrameData
 
   return (
     <main className={styles.container}>
+      <NextSeo title={`Frame Data | ${currentCharacterCapitalized}`} />
       <section className={styles.characterContainer}>
         <Image
           src={currentCharacterSrc}

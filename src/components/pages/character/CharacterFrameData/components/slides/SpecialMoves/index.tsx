@@ -32,19 +32,22 @@ const SpecialMoves: React.FC<SpecialMovesProps> = ({
             {...{ currentAttack, setCurrentAttack }}
           />
         ) : (
-          <ul>
-            <li
-              key={fatalBlow.move}
-              onClick={() => setCurrentAttack(fatalBlow)}
-              role="button"
-              className={
-                Object.is(fatalBlow, currentAttack) ? styles.activeAttack : ''
-              }
-            >
-              <span>{fatalBlow.move}</span>
-              <span>{fatalBlow.input}</span>
-            </li>
-          </ul>
+          <>
+            <h3>Fatal Blow</h3>
+            <ul>
+              <li
+                key={fatalBlow.move}
+                onClick={() => setCurrentAttack(fatalBlow)}
+                role="button"
+                className={
+                  Object.is(fatalBlow, currentAttack) ? styles.activeAttack : ''
+                }
+              >
+                <span>{fatalBlow.move}</span>
+                <span>{fatalBlow.input}</span>
+              </li>
+            </ul>
+          </>
         )}
       </section>
       <section>

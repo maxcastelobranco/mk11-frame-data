@@ -1,7 +1,18 @@
+@use "../../../../styles/variables" as *;
+
 .container {
   top: 0;
   width: 100%;
   position: relative;
   background-color: rgba(0,0,0,.7);
-  padding: 1rem;
+  padding: .75rem 1.25rem;
+
+  > div:first-child {
+    border-radius: 4px;
+    transition: box-shadow 250ms ease;
+
+    &:hover {
+      box-shadow: 0 0 8px $yellow;
+    }
+  }
 }

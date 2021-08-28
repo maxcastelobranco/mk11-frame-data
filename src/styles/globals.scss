@@ -21,16 +21,22 @@ a {
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: $yellow $gray-dark;
-  ::-webkit-scrollbar {
+}
+
+* {
+  &::-webkit-scrollbar {
     width: 8px;
     border-radius: 4px;
   }
-  ::-webkit-scrollbar-track {
-    background-color: $gray-dark
-  }
-  ::-webkit-scrollbar-thumb {
+
+  &::-webkit-scrollbar-thumb {
     background-color: $yellow;
   }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-dark;
+  }
+
 }
 
 button {

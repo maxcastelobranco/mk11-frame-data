@@ -9,6 +9,7 @@ import { RosterPortions } from '../utils/data/rosterPortions'
 import Character from '../components/pages/home/Character'
 import { AnimatePresence, motion } from 'framer-motion'
 import CustomParticles from '../components/global/CustomParticles'
+import { NextSeo } from 'next-seo'
 
 const Home: NextPage = () => {
   const [rosterPortion, setRosterPortion] =
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
 
   return (
     <main className={styles.container}>
+      <NextSeo title="Frame Data | Home" />
       <CustomParticles />
       <Header />
       <h1>Choose your fighter</h1>
