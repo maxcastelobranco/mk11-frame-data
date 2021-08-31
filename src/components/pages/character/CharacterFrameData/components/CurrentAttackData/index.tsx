@@ -4,6 +4,7 @@ import styles from '../../styles.module.scss'
 import Damage from './components/Damage'
 import MoveType from './components/MoveType'
 import FrameData from './components/FrameData'
+import MoveInfo from './components/MoveInfo'
 
 interface CurrentAttackDataProps {
   currentAttack: AttackData
@@ -14,7 +15,7 @@ const CurrentAttackData: React.FC<CurrentAttackDataProps> = ({
     damage,
     blockDamage,
     flawlessBlockDamage,
-    type,
+    moveType,
     startup,
     active,
     recovery,
@@ -22,6 +23,7 @@ const CurrentAttackData: React.FC<CurrentAttackDataProps> = ({
     hitAdvantage,
     blockAdvantage,
     flawlessBlockAdvantage,
+    info,
   },
 }) => {
   return (
@@ -34,7 +36,8 @@ const CurrentAttackData: React.FC<CurrentAttackDataProps> = ({
           flawlessBlockDamage,
         }}
       />
-      <MoveType {...{ type }} />
+      <MoveType {...{ moveType }} />
+      <MoveInfo {...{ info }} />
       <h3 className={styles.frameDataTitle}>Frame Data</h3>
       <FrameData
         {...{

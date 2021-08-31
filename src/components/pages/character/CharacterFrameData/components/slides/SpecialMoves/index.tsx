@@ -6,12 +6,14 @@ import CurrentAttackData from '../../CurrentAttackData'
 
 interface SpecialMovesProps {
   specialMoves: AttackData[]
-  fatalBlow: AttackData | AttackData[]
+  abilities: AttackData[]
+  fatalBlow: AttackData[]
 }
 
 const SpecialMoves: React.FC<SpecialMovesProps> = ({
   specialMoves,
   fatalBlow,
+  abilities,
 }) => {
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
     specialMoves[0]
@@ -24,31 +26,16 @@ const SpecialMoves: React.FC<SpecialMovesProps> = ({
           attackList={specialMoves}
           {...{ currentAttack, setCurrentAttack }}
         />
-
-        {Array.isArray(fatalBlow) ? (
-          <AttackList
-            attackList={fatalBlow}
-            title="Fatal Blow"
-            {...{ currentAttack, setCurrentAttack }}
-          />
-        ) : (
-          <>
-            <h3>Fatal Blow</h3>
-            <ul>
-              <li
-                key={fatalBlow.move}
-                onClick={() => setCurrentAttack(fatalBlow)}
-                role="button"
-                className={
-                  Object.is(fatalBlow, currentAttack) ? styles.activeAttack : ''
-                }
-              >
-                <span>{fatalBlow.move}</span>
-                <span>{fatalBlow.input}</span>
-              </li>
-            </ul>
-          </>
-        )}
+        <AttackList
+          attackList={fatalBlow}
+          title="Fatal Blow"
+          {...{ currentAttack, setCurrentAttack }}
+        />
+        <AttackList
+          attackList={abilities}
+          title="Abilities"
+          {...{ currentAttack, setCurrentAttack }}
+        />
       </section>
       <section>
         <CurrentAttackData {...{ currentAttack }} />

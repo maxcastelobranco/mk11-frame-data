@@ -60,22 +60,25 @@ const CharacterFrameData: React.FC<CharacterFrameDataProps> = ({
   const attackTypesMap: Record<AttackTypes, JSX.Element> = {
     'Basic Attacks': (
       <BasicAttacks
-        basicAttacks={frameData['Basic Attacks']}
-        getupAttacks={frameData['Getup Attacks']}
-        hopAttacks={frameData['Hop Attacks']}
-        jumpingAttacks={frameData['Jumping Attacks']}
-        flawlessBlockAttacks={frameData['Flawless Block Attacks']}
-        throws={frameData['Throws']}
+        basicAttacks={frameData.basicAttacks}
+        getupAttacks={frameData.getupAttacks}
+        hopAttacks={frameData.hopAttacks}
+        jumpingAttacks={frameData.jumpingAttacks}
+        flawlessBlockAttacks={frameData.flawlessBlockAttacks}
+        throws={frameData.throws}
+        rollEscapes={frameData.rollEscapes}
+        airEscape={frameData.airEscape}
       />
     ),
-    'Kombo Attacks': <KomboAttacks komboAttacks={frameData['Kombo Attacks']} />,
+    'Kombo Attacks': <KomboAttacks komboAttacks={frameData.komboAttacks} />,
     'Special moves': (
       <SpecialMoves
-        specialMoves={frameData['Special moves']}
-        fatalBlow={frameData['Fatal Blow']}
+        specialMoves={frameData.specialMoves}
+        fatalBlow={frameData.fatalBlow}
+        abilities={frameData.abilities}
       />
     ),
-    Finishers: <Finishers finishers={frameData['Finishers']} />,
+    Finishers: <Finishers finishers={frameData.finishers} />,
   }
   const [[page, direction], setPage] = useState([0, 0])
 

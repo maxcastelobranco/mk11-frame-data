@@ -85,7 +85,6 @@ export const characters: CharacterData[] = [
     name: 'the joker',
     availableOn: 'kombat pack 1',
   },
-
   {
     key: 'baraka',
     src: '/characters/baraka.png',

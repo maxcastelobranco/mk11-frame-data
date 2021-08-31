@@ -93,12 +93,16 @@ export interface CharacterData {
 export type FinisherTypes = 'Fatalities' | 'Brutalities'
 
 export interface AttackData {
-  move: string
-  input: string
-  type?: string
+  moveName: string
+  notation: string
+  subcategory?: string
   damage?: string
   blockDamage?: string
   flawlessBlockDamage?: string
+  moveType?: string
+  property1?: string
+  property2?: string
+  info?: string
   startup?: string
   active?: string
   recovery?: string
@@ -106,22 +110,36 @@ export interface AttackData {
   hitAdvantage?: string
   blockAdvantage?: string
   flawlessBlockAdvantage?: string
-  equip?: string
-  info?: string
+}
+
+interface FinisherData {
+  moveName: string
+  notation: string
+}
+
+interface FriendshipData extends FinisherData {
+  info: string
+}
+
+export interface FinishersData {
+  fatalities: FinisherData[]
+  brutalities: FinisherData[]
+  friendship: FriendshipData
 }
 
 export interface FrameData {
-  'Basic Attacks': AttackData[]
-  'Jumping Attacks': AttackData[]
-  'Hop Attacks': AttackData[]
-  'Getup Attacks': AttackData[]
-  'Flawless Block Attacks': AttackData[]
-  Throws: AttackData[]
-  'Roll Escapes': AttackData[]
-  'Air Escape': AttackData[]
-  'Kombo Attacks': AttackData[]
-  'Special moves': AttackData[]
-  'Fatal Blow': AttackData | AttackData[]
-  Finishers: Record<FinisherTypes, AttackData[]>
+  basicAttacks: AttackData[]
+  jumpingAttacks: AttackData[]
+  hopAttacks: AttackData[]
+  getupAttacks: AttackData[]
+  flawlessBlockAttacks: AttackData[]
+  throws: AttackData[]
+  rollEscapes: AttackData[]
+  airEscape: AttackData[]
+  komboAttacks: AttackData[]
+  specialMoves: AttackData[]
+  abilities: AttackData[]
+  finishers: FinishersData
+  fatalBlow: AttackData[]
 }
 export type RosterFrameData = Record<CharKeys, FrameData>

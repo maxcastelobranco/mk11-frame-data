@@ -1,4 +1,4 @@
-import { AvailableOn } from './characters'
+import { AvailableOn } from './types'
 
 export type RosterPortions = AvailableOn | 'mk11 ultimate'
 

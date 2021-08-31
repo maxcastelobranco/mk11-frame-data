@@ -56,7 +56,7 @@ const FrameData: React.FC<FrameDataProps> = ({
       {frameDataMap.map(({ title, value }) => (
         <li key={title}>
           <p>{title}</p>
-          <span>{value}</span>
+          <span>{value || 'N/A'}</span>
         </li>
       ))}
     </ul>

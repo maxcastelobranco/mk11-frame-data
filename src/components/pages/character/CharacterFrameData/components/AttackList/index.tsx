@@ -23,7 +23,7 @@ const AttackList: React.FC<AttackListProps> = ({
           const isActive = Object.is(attack, currentAttack)
           const classNames = []
           if (isActive) classNames.push(styles.activeAttack)
-          if (attack.move.startsWith('• '))
+          if (attack.subcategory === 'Submove')
             classNames.push(styles.complementaryAttack)
 
           return (
@@ -33,8 +33,8 @@ const AttackList: React.FC<AttackListProps> = ({
               role="button"
               className={classNames.join(' ')}
             >
-              <span>{attack.move}</span>
-              <span>{attack.input}</span>
+              <span>{attack.moveName}</span>
+              <span>{attack.notation}</span>
             </li>
           )
         })}

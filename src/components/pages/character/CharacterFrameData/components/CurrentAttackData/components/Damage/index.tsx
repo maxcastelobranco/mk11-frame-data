@@ -32,7 +32,7 @@ const Damage: React.FC<DamageProps> = ({
       {damageMap.map(({ title, value }) => (
         <li key={title}>
           <p>{title}</p>
-          <span>{value}</span>
+          <span>{value || 'N/A'}</span>
         </li>
       ))}
     </ul>

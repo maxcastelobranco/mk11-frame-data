@@ -2,32 +2,37 @@ import React, { useState } from 'react'
 import styles from '../../../styles.module.scss'
 import {
   AttackData,
-  FinisherTypes,
+  FinishersData,
 } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 
 interface FinishersProps {
-  finishers: Record<FinisherTypes, AttackData[]>
+  finishers: FinishersData
 }
 
 const Finishers: React.FC<FinishersProps> = ({
-  finishers: { Fatalities, Brutalities },
+  finishers: { fatalities, brutalities, friendship },
 }) => {
-  const [currentAttack, setCurrentAttack] = useState<AttackData>(Fatalities[0])
+  const [currentAttack, setCurrentAttack] = useState<AttackData>(fatalities[0])
 
   return (
     <div className={styles.frameDataSlide}>
       <section>
         <h3>Input commands</h3>
         <AttackList
-          attackList={Fatalities}
+          attackList={fatalities}
           title="Fatalities"
           {...{ currentAttack, setCurrentAttack }}
         />
         <AttackList
-          attackList={Brutalities}
+          attackList={brutalities}
           title="Brutalities"
+          {...{ currentAttack, setCurrentAttack }}
+        />
+        <AttackList
+          attackList={[friendship]}
+          title="Friendship"
           {...{ currentAttack, setCurrentAttack }}
         />
       </section>

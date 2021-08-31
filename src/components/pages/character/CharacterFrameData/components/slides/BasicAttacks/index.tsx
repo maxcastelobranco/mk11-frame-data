@@ -11,6 +11,8 @@ interface BasicAttacksProps {
   getupAttacks: AttackData[]
   flawlessBlockAttacks: AttackData[]
   throws: AttackData[]
+  rollEscapes: AttackData[]
+  airEscape: AttackData[]
 }
 
 const BasicAttacks: React.FC<BasicAttacksProps> = ({
@@ -20,6 +22,8 @@ const BasicAttacks: React.FC<BasicAttacksProps> = ({
   getupAttacks,
   flawlessBlockAttacks,
   throws,
+  rollEscapes,
+  airEscape,
 }) => {
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
     basicAttacks[0]
@@ -55,6 +59,16 @@ const BasicAttacks: React.FC<BasicAttacksProps> = ({
         <AttackList
           attackList={throws}
           title="Throws"
+          {...{ currentAttack, setCurrentAttack }}
+        />
+        <AttackList
+          attackList={rollEscapes}
+          title="Roll Escapes"
+          {...{ currentAttack, setCurrentAttack }}
+        />
+        <AttackList
+          attackList={airEscape}
+          title="Air Escape"
           {...{ currentAttack, setCurrentAttack }}
         />
       </section>

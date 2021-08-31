@@ -106,7 +106,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-areas:
       "title1 title1 title1 title1 title1 title1 title1"
-      ". dmg dmg type type type ."
+      "dmg dmg type type type info info"
       "title2 title2 title2 title2 title2 title2 title2"
       "fd fd fd fd fd fd fd";
     gap: .6rem;

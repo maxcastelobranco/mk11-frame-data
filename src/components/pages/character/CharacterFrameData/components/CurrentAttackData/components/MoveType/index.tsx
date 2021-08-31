@@ -2,14 +2,14 @@ import React from 'react'
 import styles from './styles.module.scss'
 
 interface MoveTypeProps {
-  type: string | undefined
+  moveType: string | undefined
 }
 
-const MoveType: React.FC<MoveTypeProps> = ({ type }) => {
+const MoveType: React.FC<MoveTypeProps> = ({ moveType }) => {
   return (
     <div className={styles.container}>
       <p>Move type</p>
-      <span>{type}</span>
+      <span>{moveType || 'N/A'}</span>
     </div>
   )
 }

@@ -1,0 +1,19 @@
+@use "../../../../../../../../styles/variables" as *;
+
+.container {
+  grid-area: info;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  p {
+    font-weight: 700;
+    color: $gray;
+  }
+  span {
+    display: block;
+    color: $yellow;
+     & + span {
+       margin-top: .5rem;
+     }
+  }
+}
