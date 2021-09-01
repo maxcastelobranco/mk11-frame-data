@@ -90,7 +90,7 @@ export interface CharacterData {
   availableOn: AvailableOn
 }
 
-export type FinisherTypes = 'Fatalities' | 'Brutalities'
+type MoveTypes = 'High' | 'Low' | 'Mid' | 'Overhead' | 'Throw'
 
 export interface AttackData {
   moveName: string
@@ -99,7 +99,7 @@ export interface AttackData {
   damage?: string
   blockDamage?: string
   flawlessBlockDamage?: string
-  moveType?: string
+  moveType?: MoveTypes
   property1?: string
   property2?: string
   info?: string

@@ -3,13 +3,28 @@
 .container {
   grid-area: type;
   justify-self: center;
-  align-self: center;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+
   p {
     font-weight: 700;
     color: $gray;
   }
+
   span {
     color: $yellow;
+  }
+
+  > div {
+    position: relative;
+
+    span {
+      z-index: 10;
+      position: absolute;
+      top: .95rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

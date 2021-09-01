@@ -46,7 +46,7 @@ const variants: Variants = {
   },
 }
 const transition: Transition = {
-  x: { type: 'spring', stiffness: 300, damping: 30 },
+  x: { type: 'spring', stiffness: 400, damping: 30 },
   opacity: { duration: 0.2 },
 }
 const swipeConfidenceThreshold = 10000
