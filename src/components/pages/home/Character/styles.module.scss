@@ -2,7 +2,7 @@
 
 .container {
   border: 1px solid hsla(0,0%,100%,.1);
-  background: linear-gradient(180deg,transparent,#000);
+  background: $black-gradient;
   position: relative;
   width: 150px;
   height: 180px;
@@ -23,7 +23,7 @@
   }
 
   &:hover {
-    box-shadow: 0 0 8px $yellow;
+    box-shadow: $yellow-shadow;
     &::before {
       opacity: 1;
     }
@@ -65,7 +65,7 @@
   text-transform: uppercase;
   padding: 8px;
   border-radius: 2px;
-  background: linear-gradient(180deg,transparent,#000);
+  background: $black-gradient;
 
   transition: transform 250ms ease-out;
 }

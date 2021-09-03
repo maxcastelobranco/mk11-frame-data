@@ -13,7 +13,7 @@
     justify-content: space-between;
     padding: 1rem .75rem;
     border-radius: 4px;
-    background: linear-gradient(180deg,transparent,#000);
+    background: $black-gradient;
     border: 1px solid hsla(0,0%,100%,.1);
 
     button {
@@ -31,7 +31,7 @@
 .frameDataSlideWrapper {
   flex: 1;
   display: flex;
-  background: linear-gradient(180deg,transparent,#000);
+  background: $black-gradient;
   border-radius: 4px;
   max-height: 90%;
 }
@@ -95,7 +95,7 @@
           right: 0;
           bottom: 0;
           left: 0;
-          background: linear-gradient(180deg,transparent,#000);
+          background: $black-gradient;
           opacity: 0;
           transition: opacity 250ms ease;
         }
@@ -183,7 +183,7 @@
     color: $light;
 
     &:hover {
-      text-shadow: 0 0 8px $yellow;
+      text-shadow: $yellow-shadow;
     }
 }
 

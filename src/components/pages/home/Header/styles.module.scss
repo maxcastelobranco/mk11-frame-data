@@ -12,7 +12,7 @@
     transition: box-shadow 250ms ease;
 
     &:hover {
-      box-shadow: 0 0 8px $yellow;
+      box-shadow: $yellow-shadow;
     }
   }
 }
