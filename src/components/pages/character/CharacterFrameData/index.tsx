@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.scss'
 import { FrameData } from '../../../../utils/data/types'
@@ -8,6 +8,7 @@ import KomboAttacks from './components/slides/KomboAttacks'
 import BasicAttacks from './components/slides/BasicAttacks'
 import SpecialMoves from './components/slides/SpecialMoves'
 import Finishers from './components/slides/Finishers'
+import { useNavigateAttackTypes } from '../../../../hooks/useNavigateAttackTypes'
 
 interface CharacterFrameDataProps {
   frameData: FrameData
@@ -28,19 +29,17 @@ const attackTypes: AttackTypes[] = [
 const variants: Variants = {
   initial: (direction: number) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 100 : -100,
       opacity: 0,
     }
   },
   animate: {
-    zIndex: 1,
     x: 0,
     opacity: 1,
   },
   exit: (direction: number) => {
     return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 100 : -100,
       opacity: 0,
     }
   },
@@ -95,6 +94,8 @@ const CharacterFrameData: React.FC<CharacterFrameDataProps> = ({
       }
     })
   }
+
+  useNavigateAttackTypes({ paginate })
 
   return (
     <div className={styles.container}>

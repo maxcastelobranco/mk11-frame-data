@@ -6,6 +6,7 @@ import {
 } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
+import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
 
 interface FinishersProps {
   finishers: FinishersData
@@ -14,7 +15,14 @@ interface FinishersProps {
 const Finishers: React.FC<FinishersProps> = ({
   finishers: { fatalities, brutalities, friendship },
 }) => {
+  const allAttacks = [...fatalities, ...brutalities, friendship]
   const [currentAttack, setCurrentAttack] = useState<AttackData>(fatalities[0])
+
+  const activeAttackRef = useNavigateAttacks({
+    allAttacks,
+    currentAttack,
+    setCurrentAttack,
+  })
 
   return (
     <div className={styles.frameDataSlide}>
@@ -23,17 +31,17 @@ const Finishers: React.FC<FinishersProps> = ({
         <AttackList
           attackList={fatalities}
           title="Fatalities"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={brutalities}
           title="Brutalities"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={[friendship]}
           title="Friendship"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
       </section>
       <section>

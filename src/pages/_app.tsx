@@ -1,7 +1,12 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
+import NotationProvider from '../context/notationContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <NotationProvider>
+      <Component {...pageProps} />
+    </NotationProvider>
+  )
 }
 export default MyApp

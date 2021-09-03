@@ -38,7 +38,7 @@
 
 .frameDataSlide {
   flex: 1;
-  padding: 1rem 2rem 2rem;
+  padding: 1.5rem;
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
@@ -55,6 +55,7 @@
       top: 0;
       margin: 0;
       padding-bottom: .6rem;
+      z-index: 100;
     }
 
     h3 {
@@ -77,20 +78,46 @@
         align-items: center;
         justify-content: space-between;
         color: $gray;
-        padding-bottom: .25rem;
+        padding-bottom: .5rem;
         border-bottom: 1px solid hsla(0,0%,100%,.1);
         transition: color 250ms ease, text-shadow 250ms ease;
+        position: relative;
+
+        > span {
+          z-index: 100;
+          padding: 0 .5rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: linear-gradient(180deg,transparent,#000);
+          opacity: 0;
+          transition: opacity 250ms ease;
+        }
 
         &:hover {
-          text-shadow: 0 0 8px $gray;
+          &::before {
+            opacity: 1;
+          }
         }
 
         &.activeAttack {
           color: $yellow;
           text-shadow: 0 0 4px $yellow;
+          &:before {
+            opacity: 1;
+          }
         }
         &.complementaryAttack {
           padding-left: 1rem;
+        }
+        & > span:nth-child(2) {
+          display: flex;
         }
       }
 

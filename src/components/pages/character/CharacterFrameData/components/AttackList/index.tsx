@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from '../../styles.module.scss'
 import { AttackData } from '../../../../../../utils/data/types'
+import Notation from './components/Notation'
 
 interface AttackListProps {
   attackList: AttackData[]
   currentAttack: AttackData
   setCurrentAttack: React.Dispatch<React.SetStateAction<AttackData>>
   title?: string
+  activeAttackRef?: React.RefObject<HTMLLIElement>
 }
 
 const AttackList: React.FC<AttackListProps> = ({
@@ -14,6 +16,7 @@ const AttackList: React.FC<AttackListProps> = ({
   currentAttack,
   setCurrentAttack,
   title = 'Input Commands',
+  activeAttackRef,
 }) => {
   return (
     <>
@@ -28,13 +31,14 @@ const AttackList: React.FC<AttackListProps> = ({
 
           return (
             <li
+              ref={isActive && activeAttackRef ? activeAttackRef : undefined}
               key={index}
               onClick={() => setCurrentAttack(attack)}
               role="button"
               className={classNames.join(' ')}
             >
               <span>{attack.moveName}</span>
-              <span>{attack.notation}</span>
+              <Notation notation={attack.notation} />
             </li>
           )
         })}

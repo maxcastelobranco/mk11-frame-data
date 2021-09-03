@@ -3,6 +3,7 @@ import styles from '../../../styles.module.scss'
 import { AttackData } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
+import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
 
 interface BasicAttacksProps {
   basicAttacks: AttackData[]
@@ -25,51 +26,66 @@ const BasicAttacks: React.FC<BasicAttacksProps> = ({
   rollEscapes,
   airEscape,
 }) => {
+  const allAttacks = [
+    ...basicAttacks,
+    ...jumpingAttacks,
+    ...hopAttacks,
+    ...getupAttacks,
+    ...flawlessBlockAttacks,
+    ...throws,
+    ...rollEscapes,
+    ...airEscape,
+  ]
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
     basicAttacks[0]
   )
+  const activeAttackRef = useNavigateAttacks({
+    allAttacks,
+    currentAttack,
+    setCurrentAttack,
+  })
 
   return (
     <div className={styles.frameDataSlide}>
-      <section>
+      <section ref={activeAttackRef}>
         <AttackList
           attackList={basicAttacks}
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={jumpingAttacks}
           title="Jumping Attacks"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={hopAttacks}
           title="Hop Attacks"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={getupAttacks}
           title="Getup Attacks"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={flawlessBlockAttacks}
-          title="Flawless Block Attacks"
-          {...{ currentAttack, setCurrentAttack }}
+          title="F/B Attacks"
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={throws}
           title="Throws"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={rollEscapes}
           title="Roll Escapes"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
           attackList={airEscape}
           title="Air Escape"
-          {...{ currentAttack, setCurrentAttack }}
+          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
       </section>
       <section>

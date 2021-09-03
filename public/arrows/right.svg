@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16.125 16.125">
+  <defs>
+    <radialGradient id="a" cx="8.063" cy="8.063" r="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#393939"/>
+      <stop offset="0.6" stop-color="#0a0a0a"/>
+    </radialGradient>
+  </defs>
+  <circle cx="8.063" cy="8.063" r="8" style="stroke: #6c757d;stroke-miterlimit: 10;stroke-width: 0.125px;fill: url(#a)"/>
+  <g>
+    <polygon points="12.036 8.063 9.036 5.562 9.036 10.563 12.036 8.063" style="fill: #fda90f;stroke: #fda90f;stroke-miterlimit: 10;stroke-width: 0.5px"/>
+    <rect x="4.089" y="7.125" width="5" height="1.875" transform="translate(13.178 16.125) rotate(-180)" style="fill: #fda90f;stroke: #fda90f;stroke-miterlimit: 10;stroke-width: 0.5px"/>
+  </g>
+</svg>

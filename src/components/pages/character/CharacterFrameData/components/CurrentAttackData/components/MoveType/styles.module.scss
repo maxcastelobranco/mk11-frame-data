@@ -2,12 +2,13 @@
 
 .container {
   grid-area: type;
-  justify-self: center;
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-self: center;
 
   p {
+    margin: 0 0 .5rem;
     font-weight: 700;
     color: $gray;
   }
