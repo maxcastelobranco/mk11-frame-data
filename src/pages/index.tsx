@@ -21,7 +21,12 @@ const Home: NextPage = () => {
     <main className={styles.container}>
       <NextSeo title="Frame Data | Home" />
       <CustomParticles />
-      <Header />
+      <Header
+        {...{
+          setSelectedCharacters,
+          setRosterPortion,
+        }}
+      />
       <h1>Choose your fighter</h1>
       <FilterCharacters
         {...{ rosterPortion, setRosterPortion, setSelectedCharacters }}

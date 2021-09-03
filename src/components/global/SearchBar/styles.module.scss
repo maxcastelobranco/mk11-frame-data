@@ -1,0 +1,89 @@
+@use "../../../styles/variables" as *;
+
+.container {
+  $size: 48px;
+  $input-width: $size * 4;
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  border: $default-border;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+  margin-left: 1rem;
+  position: relative;
+  transition: width $default-transition .75s;
+
+
+  &:focus-within {
+    width: $input-width + $size;
+
+    input {
+      opacity: 1;
+      clip-path: polygon(0 0, 100% -75%, 100% 100%, 0 175%);
+    }
+
+    button {
+      background: $yellow;
+      svg {
+        path:nth-child(2) {
+          fill: $text;
+        }
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 1.25rem;
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+
+    border: 0;
+    padding: 0 .5rem;
+    opacity: 0;
+
+    color: $light;
+    height: $size;
+    width: $input-width;
+    background: $gray-gradient;
+    clip-path: polygon(0 150%, 100% 100%, 100% 100%, 0 175%);
+    transition: opacity 750ms ease, clip-path 750ms $default-transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $light;
+      font-size: .75rem;
+      font-family: mkserif, sans-serif;
+    }
+  }
+
+  button {
+    z-index: 100;
+    width: $size;
+    height: $size;
+    margin-left: auto;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 500ms ease;
+    transition-delay: 750ms;
+
+    svg {
+      path:nth-child(2) {
+        transition: fill 500ms ease;
+        transition-delay: 750ms;
+      }
+    }
+  }
+}

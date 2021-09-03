@@ -1,7 +1,7 @@
 @use "src/styles/variables" as *;
 
 .container {
-  border: 1px solid hsla(0,0%,100%,.1);
+  border: $default-border;
   background: $black-gradient;
   position: relative;
   width: 150px;
@@ -50,7 +50,7 @@
 .imgLg {
   clip-path: polygon(0 150%, 100% 100%, 100% 100%, 0 175%);
   transform: translateY(-32px);
-  transition: cubic-bezier(0.01, 0.29, 0, 1) .75s;
+  transition: $default-transition .75s;
   transition-property: clip-path,transform;
 }
 
