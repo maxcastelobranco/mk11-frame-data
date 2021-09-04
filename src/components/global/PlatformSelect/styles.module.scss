@@ -49,8 +49,6 @@
       bottom: -$height * 3;
       left: 0;
       width: $width;
-      transition: 500ms $default-transition;
-      transition-property: opacity, transform;
     }
 
     li {
@@ -65,6 +63,8 @@
       background: $gray-gradient;
       border: $default-border;
       color: $light;
+      transition: 500ms $default-transition;
+      transition-property: opacity, transform;
     }
 
     li:first-child {

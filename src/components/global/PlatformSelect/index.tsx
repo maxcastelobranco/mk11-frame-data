@@ -33,16 +33,19 @@ const PlatformSelect: React.FC = () => {
       <h3>Notation</h3>
       <div onClick={toggleOpen}>
         <p>{currentNotation}</p>
-        <ul
-          style={{
-            opacity: isOpen ? 1 : 0,
-            transformOrigin: 'top',
-            transform: `scale(${isOpen ? 1 : 0})`,
-          }}
-        >
-          {OPTIONS.map((option) => {
+        <ul>
+          {OPTIONS.map((option, index) => {
             return (
-              <li key={option} onClick={() => setCurrentNotation(option)}>
+              <li
+                key={option}
+                onClick={() => setCurrentNotation(option)}
+                style={{
+                  opacity: isOpen ? 1 : 0,
+                  transformOrigin: 'top',
+                  transform: `scale(${isOpen ? 1 : 0})`,
+                  transitionDelay: `${index * 125}ms`,
+                }}
+              >
                 {option}
               </li>
             )
