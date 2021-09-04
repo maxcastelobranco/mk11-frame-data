@@ -6,12 +6,10 @@ import { characters } from '../../../../utils/data/characters'
 import { CharacterData } from '../../../../utils/data/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import SearchBar from '../../../global/SearchBar'
-import ExpandMore from '../../../svg/ExpandMore'
-import {
-  NotationOptions,
-  useNotationContext,
-} from '../../../../context/notationContext'
+
+import { useNotationContext } from '../../../../context/notationContext'
 import { RosterPortions } from '../../../../utils/data/rosterPortions'
+import PlatformSelect from '../../../global/PlatformSelect'
 
 export type HeaderFormData = {
   searchQuery: string
@@ -26,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({
   setSelectedCharacters,
   setRosterPortion,
 }) => {
-  const { currentNotation, setCurrentNotation } = useNotationContext()
   const { register, handleSubmit } = useForm<HeaderFormData>()
 
   const onSubmit: SubmitHandler<HeaderFormData> = ({ searchQuery }) => {
@@ -59,22 +56,7 @@ const Header: React.FC<HeaderProps> = ({
         onSubmit={handleSubmit(onSubmit)}
         {...{ register }}
       />
-      <div className={styles.customSelectContainer}>
-        <h3>Notation</h3>
-        <select
-          defaultValue={currentNotation}
-          onChange={(event) => {
-            setCurrentNotation(event.target.value as NotationOptions)
-          }}
-        >
-          <option value={NotationOptions.default}>Default</option>
-          <option value={NotationOptions.playstation}>Playstation</option>
-          <option value={NotationOptions.xbox}>Xbox</option>
-        </select>
-        <span className={styles.customArrow}>
-          <ExpandMore />
-        </span>
-      </div>
+      <PlatformSelect />
     </header>
   )
 }

@@ -19,5 +19,6 @@
         <language minSize="55" name="TypeScript" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>
