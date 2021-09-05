@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.scss'
 import { FrameData } from '../../../../utils/data/types'

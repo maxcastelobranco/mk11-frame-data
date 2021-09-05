@@ -30,15 +30,22 @@
   }
 
   > div:nth-child(2) {
+    margin-top: 1rem;
     width: 100%;
+    height: 100%;
     background: url("/character-title-bg.png") no-repeat;
 
     > h1 {
-      padding-top: 2.25rem;
+      padding-top: 3rem;
       padding-left: 7rem;
       color: $light;
       font-size: 2.25rem;
       text-shadow: 0 0 8px $red;
+    }
+
+    > div {
+      display: flex;
+      padding: 5rem 2rem 0 5rem;
     }
   }
 }

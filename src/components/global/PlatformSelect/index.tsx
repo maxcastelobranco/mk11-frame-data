@@ -23,7 +23,9 @@ const PlatformSelect: React.FC = () => {
   }
 
   const handleClickOutside = () => {
-    setIsOpen(false)
+    if (isOpen) {
+      setIsOpen(false)
+    }
   }
 
   useOnClickOutside(containerRef, handleClickOutside)
@@ -33,7 +35,7 @@ const PlatformSelect: React.FC = () => {
       <h3>Notation</h3>
       <div onClick={toggleOpen}>
         <p>{currentNotation}</p>
-        <ul>
+        <ul style={{ pointerEvents: isOpen ? 'initial' : 'none' }}>
           {OPTIONS.map((option, index) => {
             return (
               <li

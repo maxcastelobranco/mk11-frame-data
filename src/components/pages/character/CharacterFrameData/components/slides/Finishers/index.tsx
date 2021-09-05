@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../../styles.module.scss'
 import {
   AttackData,
+  emptyAttack,
   FinishersData,
 } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
@@ -16,7 +17,9 @@ const Finishers: React.FC<FinishersProps> = ({
   finishers: { fatalities, brutalities, friendship },
 }) => {
   const allAttacks = [...fatalities, ...brutalities, friendship]
-  const [currentAttack, setCurrentAttack] = useState<AttackData>(fatalities[0])
+  const [currentAttack, setCurrentAttack] = useState<AttackData>(
+    fatalities[0] || emptyAttack
+  )
 
   const activeAttackRef = useNavigateAttacks({
     allAttacks,

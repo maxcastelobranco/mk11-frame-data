@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../../../styles.module.scss'
-import { AttackData } from '../../../../../../../utils/data/types'
+import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
@@ -8,7 +8,7 @@ import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttack
 interface SpecialMovesProps {
   specialMoves: AttackData[]
   abilities: AttackData[]
-  fatalBlow: AttackData[]
+  fatalBlow: AttackData
 }
 
 const SpecialMoves: React.FC<SpecialMovesProps> = ({
@@ -16,10 +16,10 @@ const SpecialMoves: React.FC<SpecialMovesProps> = ({
   fatalBlow,
   abilities,
 }) => {
-  const allAttacks = [...specialMoves, ...fatalBlow, ...abilities]
+  const allAttacks = [...specialMoves, fatalBlow, ...abilities]
 
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
-    specialMoves[0]
+    specialMoves[0] || emptyAttack
   )
 
   const activeAttackRef = useNavigateAttacks({
@@ -36,7 +36,7 @@ const SpecialMoves: React.FC<SpecialMovesProps> = ({
           {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
         <AttackList
-          attackList={fatalBlow}
+          attackList={[fatalBlow]}
           title="Fatal Blow"
           {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />

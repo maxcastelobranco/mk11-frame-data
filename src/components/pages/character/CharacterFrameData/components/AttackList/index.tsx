@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import styles from '../../styles.module.scss'
 import { AttackData } from '../../../../../../utils/data/types'
 import Notation from './components/Notation'
@@ -24,22 +24,43 @@ const AttackList: React.FC<AttackListProps> = ({
       <ul>
         {attackList.map((attack, index) => {
           const isActive = Object.is(attack, currentAttack)
-          const classNames = []
-          if (isActive) classNames.push(styles.activeAttack)
-          if (attack.subcategory === 'Submove')
-            classNames.push(styles.complementaryAttack)
 
           return (
-            <li
-              ref={isActive && activeAttackRef ? activeAttackRef : undefined}
-              key={index}
-              onClick={() => setCurrentAttack(attack)}
-              role="button"
-              className={classNames.join(' ')}
-            >
-              <span>{attack.moveName}</span>
-              <Notation notation={attack.notation} />
-            </li>
+            <>
+              <li
+                ref={isActive && activeAttackRef ? activeAttackRef : undefined}
+                key={index}
+                onClick={() => setCurrentAttack(attack)}
+                role="button"
+                className={isActive ? styles.activeAttack : ''}
+              >
+                <span>{attack.moveName}</span>
+                <Notation notation={attack.notation} />
+              </li>
+              {attack.submoves &&
+                attack.submoves.map((attack, index) => {
+                  const isActive = Object.is(attack, currentAttack)
+                  const classNames = [styles.complementaryAttack]
+                  if (isActive) classNames.push(styles.activeAttack)
+
+                  return (
+                    <li
+                      ref={
+                        isActive && activeAttackRef
+                          ? activeAttackRef
+                          : undefined
+                      }
+                      key={index}
+                      onClick={() => setCurrentAttack(attack)}
+                      role="button"
+                      className={classNames.join(' ')}
+                    >
+                      <span>{attack.moveName}</span>
+                      <Notation notation={attack.notation} />
+                    </li>
+                  )
+                })}
+            </>
           )
         })}
       </ul>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Search: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
-    <svg height={36} width={36} viewBox="0 0 24 24" {...props}>
+    <svg height={32} width={32} viewBox="0 0 24 24" {...props}>
       <path d="M0 0h24v24H0V0z" fill="none" />
       <path
         fill="#fda90f"

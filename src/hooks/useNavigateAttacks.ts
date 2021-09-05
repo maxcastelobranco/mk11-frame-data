@@ -14,9 +14,8 @@ export const useNavigateAttacks = ({
 }: UseNavigateAttacksDTO) => {
   const handleUserKeyPress = (event: KeyboardEvent) => {
     if (
-      ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(
-        event.code
-      ) > -1
+      ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(event.code) >
+      -1
     ) {
       event.preventDefault()
     }
@@ -30,11 +29,25 @@ export const useNavigateAttacks = ({
         if (currentIndex === 0) {
           break
         }
+        if (allAttacks.length === 0) {
+          break
+        }
+        if (currentIndex === -1) {
+          setCurrentAttack(allAttacks[0])
+          break
+        }
         setCurrentAttack(allAttacks[currentIndex - 1])
         break
       }
       case 'ArrowDown': {
         if (currentIndex === allAttacks.length - 1) {
+          break
+        }
+        if (allAttacks.length === 0) {
+          break
+        }
+        if (currentIndex === -1) {
+          setCurrentAttack(allAttacks[0])
           break
         }
         setCurrentAttack(allAttacks[currentIndex + 1])

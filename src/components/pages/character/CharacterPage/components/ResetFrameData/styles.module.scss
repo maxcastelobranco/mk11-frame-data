@@ -1,0 +1,41 @@
+@use "../../../../../../styles/variables" as *;
+
+.container {
+  $height: 48px;
+  $width: $height * 4;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  h3 {
+    font-family: mkserif, sans-serif;
+    color: $yellow;
+    font-size: .75rem;
+    margin-right: 1rem;
+    transition: color $default-transition 500ms;
+  }
+
+  svg {
+    transition: transform $default-transition 750ms;
+
+    path:nth-child(2) {
+      transition: fill $default-transition 500ms;
+    }
+  }
+}
+
+.disabled {
+  h3 {
+    color: $gray;
+  }
+
+  svg {
+    path:nth-child(2) {
+      fill: $gray;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import SearchBar from '../../../global/SearchBar'
 import { useNotationContext } from '../../../../context/notationContext'
 import { RosterPortions } from '../../../../utils/data/rosterPortions'
 import PlatformSelect from '../../../global/PlatformSelect'
+import { checkString } from '../../../../utils/helpers/checkString'
 
 export type HeaderFormData = {
   searchQuery: string
@@ -29,9 +30,14 @@ const Header: React.FC<HeaderProps> = ({
   const onSubmit: SubmitHandler<HeaderFormData> = ({ searchQuery }) => {
     if (searchQuery) {
       setSelectedCharacters(
-        characters.filter(({ name }) =>
-          name.includes(searchQuery.toLowerCase())
-        )
+        characters.filter(({ name }) => {
+          const formattedSearchQuery = searchQuery.toLowerCase()
+
+          return (
+            name.includes(formattedSearchQuery) ||
+            checkString(name, formattedSearchQuery)
+          )
+        })
       )
       setRosterPortion('mk11 ultimate')
     } else {
@@ -44,6 +50,7 @@ const Header: React.FC<HeaderProps> = ({
     <header className={styles.container}>
       <Link href="/" passHref>
         <Image
+          alt="frame data logo"
           src="/frame-data-logo.png"
           width={240}
           height={72}

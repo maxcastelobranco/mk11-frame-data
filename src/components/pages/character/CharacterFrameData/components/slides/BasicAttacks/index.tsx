@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../../../styles.module.scss'
-import { AttackData } from '../../../../../../../utils/data/types'
+import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
@@ -37,7 +37,7 @@ const BasicAttacks: React.FC<BasicAttacksProps> = ({
     ...airEscape,
   ]
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
-    basicAttacks[0]
+    basicAttacks[0] || emptyAttack
   )
   const activeAttackRef = useNavigateAttacks({
     allAttacks,

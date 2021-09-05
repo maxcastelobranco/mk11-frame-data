@@ -30,6 +30,7 @@ const SearchBar = <T extends FieldValues>({
         {...register(name)}
         {...{ placeholder }}
         aria-label={placeholder}
+        autoComplete="off"
         type="text"
       />
       <button type="submit">

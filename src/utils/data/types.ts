@@ -92,7 +92,7 @@ export interface CharacterData {
 
 type MoveTypes = 'High' | 'Low' | 'Mid' | 'Overhead' | 'Throw'
 
-export interface AttackData {
+interface MoveData {
   moveName: string
   notation: string
   subcategory?: string
@@ -110,6 +110,10 @@ export interface AttackData {
   hitAdvantage?: string
   blockAdvantage?: string
   flawlessBlockAdvantage?: string
+}
+
+export interface AttackData extends MoveData {
+  submoves?: MoveData[]
 }
 
 interface FinisherData {
@@ -140,6 +144,32 @@ export interface FrameData {
   specialMoves: AttackData[]
   abilities: AttackData[]
   finishers: FinishersData
-  fatalBlow: AttackData[]
+  fatalBlow: AttackData
 }
-export type RosterFrameData = Record<CharKeys, FrameData>
+// export type RosterFrameData = Record<CharKeys, FrameData>
+
+export const emptyAttack: AttackData = {
+  moveName: '',
+  notation: '',
+  subcategory: '',
+  damage: '',
+  blockDamage: '',
+  flawlessBlockDamage: '',
+  moveType: 'Mid',
+  property1: '',
+  property2: '',
+  info: '',
+  startup: '',
+  active: '',
+  recovery: '',
+  cancelAdvantage: '',
+  hitAdvantage: '',
+  blockAdvantage: '',
+  flawlessBlockAdvantage: '',
+}
+
+export const emptyFriendship = {
+  moveName: '',
+  notation: '',
+  info: '',
+}

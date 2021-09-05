@@ -141,7 +141,7 @@
     .moveDataTitle {
       grid-area: title1;
       position: relative;
-      &:after {
+      &::after {
         content: "";
         height: 2px;
         width: 100%;
@@ -155,7 +155,7 @@
     .frameDataTitle {
       grid-area: title2;
       position: relative;
-      &:after {
+      &::after {
         content: "";
         height: 2px;
         width: 100%;
