@@ -1,21 +1,18 @@
 import React, { useState } from 'react'
 import styles from '../../../styles.module.scss'
-import {
-  AttackData,
-  emptyAttack,
-  FinishersData,
-} from '../../../../../../../utils/data/types'
+import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
+import { useFilteredFrameDataContext } from '../../../../../../../context/filteredFrameDataContext'
 
-interface FinishersProps {
-  finishers: FinishersData
-}
+const Finishers: React.FC = () => {
+  const {
+    filteredCharacterFrameData: {
+      finishers: { fatalities, brutalities, friendship },
+    },
+  } = useFilteredFrameDataContext()
 
-const Finishers: React.FC<FinishersProps> = ({
-  finishers: { fatalities, brutalities, friendship },
-}) => {
   const allAttacks = [...fatalities, ...brutalities, friendship]
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
     fatalities[0] || emptyAttack

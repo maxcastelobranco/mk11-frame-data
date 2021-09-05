@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.scss'
-import { FrameData } from '../../../../utils/data/types'
 import { AnimatePresence, motion, Transition, Variants } from 'framer-motion'
 import { wrap } from '../../../../utils/helpers/wrap'
 import KomboAttacks from './components/slides/KomboAttacks'
@@ -9,10 +8,6 @@ import BasicAttacks from './components/slides/BasicAttacks'
 import SpecialMoves from './components/slides/SpecialMoves'
 import Finishers from './components/slides/Finishers'
 import { useNavigateAttackTypes } from '../../../../hooks/useNavigateAttackTypes'
-
-interface CharacterFrameDataProps {
-  frameData: FrameData
-}
 
 type AttackTypes =
   | 'Basic Attacks'
@@ -53,31 +48,12 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity
 }
 
-const CharacterFrameData: React.FC<CharacterFrameDataProps> = ({
-  frameData,
-}) => {
+const CharacterFrameData: React.FC = () => {
   const attackTypesMap: Record<AttackTypes, JSX.Element> = {
-    'Basic Attacks': (
-      <BasicAttacks
-        basicAttacks={frameData.basicAttacks}
-        getupAttacks={frameData.getupAttacks}
-        hopAttacks={frameData.hopAttacks}
-        jumpingAttacks={frameData.jumpingAttacks}
-        flawlessBlockAttacks={frameData.flawlessBlockAttacks}
-        throws={frameData.throws}
-        rollEscapes={frameData.rollEscapes}
-        airEscape={frameData.airEscape}
-      />
-    ),
-    'Kombo Attacks': <KomboAttacks komboAttacks={frameData.komboAttacks} />,
-    'Special moves': (
-      <SpecialMoves
-        specialMoves={frameData.specialMoves}
-        fatalBlow={frameData.fatalBlow}
-        abilities={frameData.abilities}
-      />
-    ),
-    Finishers: <Finishers finishers={frameData.finishers} />,
+    'Basic Attacks': <BasicAttacks />,
+    'Kombo Attacks': <KomboAttacks />,
+    'Special moves': <SpecialMoves />,
+    Finishers: <Finishers />,
   }
   const [[page, direction], setPage] = useState([0, 0])
 

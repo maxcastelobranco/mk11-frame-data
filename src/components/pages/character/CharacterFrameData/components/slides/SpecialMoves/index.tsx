@@ -4,18 +4,13 @@ import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
+import { useFilteredFrameDataContext } from '../../../../../../../context/filteredFrameDataContext'
 
-interface SpecialMovesProps {
-  specialMoves: AttackData[]
-  abilities: AttackData[]
-  fatalBlow: AttackData
-}
+const SpecialMoves: React.FC = () => {
+  const {
+    filteredCharacterFrameData: { specialMoves, fatalBlow, abilities },
+  } = useFilteredFrameDataContext()
 
-const SpecialMoves: React.FC<SpecialMovesProps> = ({
-  specialMoves,
-  fatalBlow,
-  abilities,
-}) => {
   const allAttacks = [...specialMoves, fatalBlow, ...abilities]
 
   const [currentAttack, setCurrentAttack] = useState<AttackData>(

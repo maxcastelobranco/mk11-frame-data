@@ -4,12 +4,13 @@ import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
+import { useFilteredFrameDataContext } from '../../../../../../../context/filteredFrameDataContext'
 
-interface KomboAttacksProps {
-  komboAttacks: AttackData[]
-}
+const KomboAttacks: React.FC = () => {
+  const {
+    filteredCharacterFrameData: { komboAttacks },
+  } = useFilteredFrameDataContext()
 
-const KomboAttacks: React.FC<KomboAttacksProps> = ({ komboAttacks }) => {
   const [currentAttack, setCurrentAttack] = useState<AttackData>(
     komboAttacks[0] || emptyAttack
   )

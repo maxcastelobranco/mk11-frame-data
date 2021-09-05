@@ -1,36 +1,30 @@
 import React, { useState } from 'react'
 import Refresh from '../../../../../svg/Refresh'
 import styles from './styles.module.scss'
+import { useFilteredFrameDataContext } from '../../../../../../context/filteredFrameDataContext'
 
 interface ResetFrameDataProps {
-  resetFrameData(): void
-  disabled: boolean
+  reset: () => void
 }
 
-const ResetFrameData: React.FC<ResetFrameDataProps> = ({
-  resetFrameData,
-  disabled,
-}) => {
+const ResetFrameData: React.FC<ResetFrameDataProps> = ({ reset }) => {
+  const { resetFrameData } = useFilteredFrameDataContext()
   const [pressed, setPressed] = useState(true)
 
   const togglePressed = () => {
     setPressed((prevState) => !prevState)
   }
 
-  const containerClassName = disabled
-    ? [styles.container, styles.disabled].join(' ')
-    : styles.container
-
   return (
     <button
       onClick={() => {
         resetFrameData()
         togglePressed()
+        reset()
       }}
-      className={containerClassName}
-      {...{ disabled }}
+      className={styles.container}
     >
-      <h3>Reset Frame Data</h3>
+      <h3>Reset</h3>
       <Refresh
         style={{
           transform: pressed ? 'rotate(0deg)' : 'rotate(540deg)',

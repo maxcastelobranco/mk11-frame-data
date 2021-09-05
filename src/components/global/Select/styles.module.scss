@@ -21,7 +21,7 @@
     width: $width;
     text-transform: capitalize;
 
-    font-size: .5rem;
+    font-size: .75rem;
     font-family: mkserif, sans-serif;
     font-weight: 700;
 
@@ -47,7 +47,6 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      bottom: -$height * 3;
       left: 0;
       width: $width;
     }
@@ -61,7 +60,7 @@
       align-items: center;
       justify-content: center;
       font-family: mkserif, sans-serif;
-      background: $gray-gradient;
+      background: linear-gradient(180deg,$gray-dark,#000);
       border: $default-border;
       color: $light;
       transition: 500ms $default-transition;

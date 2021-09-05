@@ -4,28 +4,21 @@ import { AttackData, emptyAttack } from '../../../../../../../utils/data/types'
 import AttackList from '../../AttackList'
 import CurrentAttackData from '../../CurrentAttackData'
 import { useNavigateAttacks } from '../../../../../../../hooks/useNavigateAttacks'
+import { useFilteredFrameDataContext } from '../../../../../../../context/filteredFrameDataContext'
 
-interface BasicAttacksProps {
-  basicAttacks: AttackData[]
-  jumpingAttacks: AttackData[]
-  hopAttacks: AttackData[]
-  getupAttacks: AttackData[]
-  flawlessBlockAttacks: AttackData[]
-  throws: AttackData[]
-  rollEscapes: AttackData[]
-  airEscape: AttackData[]
-}
-
-const BasicAttacks: React.FC<BasicAttacksProps> = ({
-  basicAttacks,
-  jumpingAttacks,
-  hopAttacks,
-  getupAttacks,
-  flawlessBlockAttacks,
-  throws,
-  rollEscapes,
-  airEscape,
-}) => {
+const BasicAttacks: React.FC = () => {
+  const {
+    filteredCharacterFrameData: {
+      basicAttacks,
+      jumpingAttacks,
+      hopAttacks,
+      getupAttacks,
+      flawlessBlockAttacks,
+      throws,
+      rollEscapes,
+      airEscape,
+    },
+  } = useFilteredFrameDataContext()
   const allAttacks = [
     ...basicAttacks,
     ...jumpingAttacks,
