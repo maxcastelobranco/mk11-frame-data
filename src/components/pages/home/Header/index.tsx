@@ -7,7 +7,6 @@ import { CharacterData } from '../../../../utils/data/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import SearchBar from '../../../global/SearchBar'
 
-import { useNotationContext } from '../../../../context/notationContext'
 import { RosterPortions } from '../../../../utils/data/rosterPortions'
 import PlatformSelect from '../../../global/PlatformSelect'
 import { checkString } from '../../../../utils/helpers/checkString'

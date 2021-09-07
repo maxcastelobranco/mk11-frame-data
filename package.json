@@ -17,6 +17,7 @@
     "react-hook-form": "^7.14.2",
     "react-particles-js": "^3.5.3",
     "sass": "^1.38.0",
+    "sharp": "^0.29.0",
     "tsparticles": "^1.33.3"
   },
   "devDependencies": {

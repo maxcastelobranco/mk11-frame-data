@@ -90,7 +90,7 @@ export interface CharacterData {
   availableOn: AvailableOn
 }
 
-type MoveTypes = 'High' | 'Low' | 'Mid' | 'Overhead' | 'Throw'
+type MoveTypes = 'High' | 'Low' | 'Mid' | 'Overhead' | 'Throw' | 'Unblockable'
 
 interface MoveData {
   moveName: string

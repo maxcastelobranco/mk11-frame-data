@@ -8,13 +8,16 @@ interface ResetFrameDataProps {
 }
 
 const ResetFrameData: React.FC<ResetFrameDataProps> = ({ reset }) => {
-  const { resetFrameData } = useFilteredFrameDataContext()
+  const { resetFrameData, isResetDisabled } = useFilteredFrameDataContext()
   const [pressed, setPressed] = useState(true)
 
   const togglePressed = () => {
     setPressed((prevState) => !prevState)
   }
 
+  const className = isResetDisabled
+    ? [styles.container, styles.disabled].join(' ')
+    : styles.container
   return (
     <button
       onClick={() => {
@@ -22,7 +25,8 @@ const ResetFrameData: React.FC<ResetFrameDataProps> = ({ reset }) => {
         togglePressed()
         reset()
       }}
-      className={styles.container}
+      disabled={isResetDisabled}
+      className={className}
     >
       <h3>Reset</h3>
       <Refresh

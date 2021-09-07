@@ -27,3 +27,15 @@
     }
   }
 }
+
+.disabled {
+  h3 {
+    color: $gray;
+  }
+
+  svg {
+    path:nth-child(2) {
+      fill: $gray;
+    }
+  }
+}

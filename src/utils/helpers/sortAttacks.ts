@@ -1,5 +1,23 @@
 import { AttackData } from '../data/types'
 
+export const customSortFunction = (
+  array: AttackData[],
+  sortFunction: (a: AttackData, b: AttackData) => number
+) => {
+  const arrayCopy = array.slice()
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - 1; j++) {
+      if (sortFunction(array[j], array[j + 1]) > 0) {
+        const temp = array[j]
+        array[j] = array[j + 1]
+        array[j + 1] = temp
+      }
+    }
+  }
+  return arrayCopy
+}
+
 export const sortByMoveName = (a: AttackData, b: AttackData) => {
   return Number(a.moveName > b.moveName)
 }

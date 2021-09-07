@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import Select from '../Select'
 import { SortOptions } from '../../../utils/helpers/sortAttacks'
