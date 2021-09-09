@@ -44,6 +44,7 @@ const Character: React.FC<CharacterProps> = ({
           objectFit="contain"
           alt={name}
           layout="fill"
+          priority
           className={styles.imgSm}
           {...preventImageDrag}
         />
@@ -52,6 +53,7 @@ const Character: React.FC<CharacterProps> = ({
           objectFit="cover"
           alt={name}
           layout="fill"
+          priority
           className={styles.imgLg}
           {...preventImageDrag}
         />

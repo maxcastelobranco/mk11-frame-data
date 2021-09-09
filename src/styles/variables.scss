@@ -19,9 +19,18 @@ $danger: #fa2a18;
 $light: #f8f9fa;
 $dark: #343a40;
 $text: #090A0B;
+
 $black-gradient: linear-gradient(180deg,transparent,#000);
 $gray-gradient: linear-gradient(180deg,transparent,$gray-dark);
+
 $yellow-shadow: 0 0 8px $yellow;
 $default-border: 1px solid hsla(0,0%,100%,.1);
+
 $default-transition: cubic-bezier(0.01, 0.29, 0, 1);
+
+$font-size-lg: 2.25rem;
+$font-size-m: 1.25rem;
+$font-size-sm: .75rem;
+
 $font-family-sans-serif: "Roboto Condensed",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$font-family-custom: "mkserif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";

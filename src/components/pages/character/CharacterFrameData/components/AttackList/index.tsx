@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../styles.module.scss'
 import { AttackData } from '../../../../../../utils/data/types'
 import Notation from './components/Notation'
+import { useMediaQuery } from '../../../../../../hooks/useMediaQuery'
 
 interface AttackListProps {
   attackList: AttackData[]
@@ -18,9 +19,11 @@ const AttackList: React.FC<AttackListProps> = ({
   title = 'Input Commands',
   activeAttackRef,
 }) => {
+  const minWidth950 = useMediaQuery('(min-width:950px)')
+  const minWidth570 = useMediaQuery('(min-width:570px)')
   return (
     <>
-      <h3>{title}</h3>
+      {minWidth950 && <h3>{title}</h3>}
       <ul>
         {attackList.map((attack, index) => {
           const isActive = Object.is(attack, currentAttack)
@@ -34,7 +37,7 @@ const AttackList: React.FC<AttackListProps> = ({
                 role="button"
                 className={isActive ? styles.activeAttack : ''}
               >
-                <span>{attack.moveName}</span>
+                {minWidth570 && <span>{attack.moveName}</span>}
                 <Notation notation={attack.notation} />
               </li>
               {attack.submoves &&

@@ -1,10 +1,10 @@
 @use "../../../styles/variables" as *;
 
 .container {
-  $size: 48px;
-  $input-width: $size * 4;
-  width: $size;
-  height: $size;
+  --size: 40px;
+  --input-width: calc(var(--size) * 5);
+  width: var(--size);
+  height: var(--size);
   overflow: hidden;
   border: $default-border;
 
@@ -19,7 +19,7 @@
 
 
   &:focus-within {
-    width: $input-width + $size;
+    width: calc(var(--input-width) + var(--size));
 
     input {
       opacity: 1;
@@ -41,7 +41,7 @@
     top: 0;
     left: 0;
 
-    font-size: 1.25rem;
+    font-size: $font-size-m;
     font-family: $font-family-sans-serif;
     font-weight: 700;
 
@@ -50,8 +50,8 @@
     opacity: 0;
 
     color: $light;
-    height: $size;
-    width: $input-width;
+    height: var(--size);
+    width: var(--input-width);
     background: $gray-gradient;
     clip-path: polygon(0 150%, 100% 100%, 100% 100%, 0 175%);
     transition: opacity 750ms ease, clip-path 750ms $default-transition;
@@ -62,15 +62,15 @@
 
     &::placeholder {
       color: $light;
-      font-size: .75rem;
-      font-family: mkserif, sans-serif;
+      font-size: $font-size-sm;
+      font-family: $font-family-custom;
     }
   }
 
   button {
     z-index: 100;
-    width: $size;
-    height: $size;
+    width: var(--size);
+    height: var(--size);
     margin-left: auto;
     border-radius: 0 4px 4px 0;
     display: flex;
@@ -83,6 +83,16 @@
       path:nth-child(2) {
         transition: fill 500ms ease;
         transition-delay: 750ms;
+      }
+    }
+  }
+
+  @media (max-width: 680px) {
+    input {
+      font-size: $font-size-sm * .8;
+
+      &::placeholder{
+        font-size: $font-size-sm * .8;
       }
     }
   }

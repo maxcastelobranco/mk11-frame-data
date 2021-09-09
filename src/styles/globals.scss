@@ -11,6 +11,18 @@ body {
   margin: 0;
   font-family: $font-family-sans-serif;
   -webkit-font-smoothing: antialiased;
+
+  @media(max-width: 1080px) {
+    font-size: 93.75%;
+  }
+
+  @media(max-width: 720px) {
+    font-size: 87.5%;
+  }
+
+  @media(max-width: 414px) {
+    font-size: 75%;
+  }
 }
 
 a {

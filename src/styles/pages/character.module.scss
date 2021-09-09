@@ -13,7 +13,7 @@
   background-size: cover;
 
   h1 {
-    font-family: "mkserif", sans-serif;
+    font-family: $font-family-custom;
   }
 }
 
@@ -25,7 +25,7 @@
   > div:first-child {
     position: absolute;
     top: 1rem;
-    left: 5rem;
+    left: 1rem;
     z-index: 100;
   }
 
@@ -39,13 +39,97 @@
       padding-top: 3rem;
       padding-left: 7rem;
       color: $light;
-      font-size: 2.25rem;
+      font-size: $font-size-lg;
       text-shadow: 0 0 8px $red;
     }
 
     > div {
+      //background: red;
       display: flex;
-      padding: 5rem 2rem 0 5rem;
+      padding: 3.5rem 2rem 0 0;
     }
   }
+
+  @media (max-width: 1300px) {
+    > div:nth-child(2) {
+      > div {
+        padding: 3rem 2rem .5rem 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+                "reset sort"
+                "search notation";
+        gap: 1rem;
+
+        > form {
+          margin: 0;
+        }
+
+        > form:first-child {
+          grid-area: search;
+        }
+        > button:nth-child(2) {
+          grid-area: reset;
+          margin: 0;
+        }
+        > div:nth-child(3) {
+          grid-area: sort;
+        }
+        > div:nth-child(4) {
+          grid-area: notation;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 785px) {
+    > div:nth-child(2) {
+      background-image: none;
+
+      > h1 {
+        padding: 2rem 0 0;
+        margin: 0;
+        text-align: center;
+        text-shadow: none;
+      }
+
+      > div {
+        padding-top: 2rem;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+                "sort sort"
+                "notation notation"
+                "search reset";
+        > button:nth-child(2) {
+          margin-left: auto;
+        }
+        > div:nth-child(3),
+        > div:nth-child(4) {
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 570px) {
+    > div:nth-child(2) {
+      > h1 {
+        padding-top: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+
+      > div {
+        padding: 0 2rem;
+      }
+    }
+  }
+
+}
+
+.smallImage {
+  grid-area: img;
 }

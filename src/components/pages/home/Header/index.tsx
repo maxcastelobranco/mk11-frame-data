@@ -10,6 +10,7 @@ import SearchBar from '../../../global/SearchBar'
 import { RosterPortions } from '../../../../utils/data/rosterPortions'
 import PlatformSelect from '../../../global/PlatformSelect'
 import { checkString } from '../../../../utils/helpers/checkString'
+import { useMediaQuery } from '../../../../hooks/useMediaQuery'
 
 export type HeaderFormData = {
   searchQuery: string
@@ -24,7 +25,9 @@ const Header: React.FC<HeaderProps> = ({
   setSelectedCharacters,
   setRosterPortion,
 }) => {
-  const { register, handleSubmit } = useForm<HeaderFormData>()
+  const { register, handleSubmit, setFocus } = useForm<HeaderFormData>()
+  const mw850 = useMediaQuery('(max-width: 850px)')
+  const mw680 = useMediaQuery('(max-width: 680px)')
 
   const onSubmit: SubmitHandler<HeaderFormData> = ({ searchQuery }) => {
     if (searchQuery) {
@@ -45,24 +48,36 @@ const Header: React.FC<HeaderProps> = ({
     }
   }
 
+  const logo = mw850 ? (
+    <Image
+      alt="frame data logo"
+      src="/frame-data-small-logo.png"
+      width={100}
+      height={72}
+      objectFit="contain"
+    />
+  ) : (
+    <Image
+      alt="frame data logo"
+      src="/frame-data-logo.png"
+      width={240}
+      height={72}
+      objectFit="contain"
+    />
+  )
+
   return (
     <header className={styles.container}>
       <Link href="/" passHref>
-        <Image
-          alt="frame data logo"
-          src="/frame-data-logo.png"
-          width={240}
-          height={72}
-          objectFit="contain"
-        />
+        {logo}
       </Link>
       <SearchBar<HeaderFormData>
         name="searchQuery"
         placeholder="search fighters"
         onSubmit={handleSubmit(onSubmit)}
-        {...{ register }}
+        {...{ register, setFocus }}
       />
-      <PlatformSelect />
+      {!mw680 && <PlatformSelect />}
     </header>
   )
 }

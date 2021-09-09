@@ -1,17 +1,18 @@
 import React from 'react'
 import frameData from '../../../../utils/data/frameData.json'
-import { CharKeys, FrameData } from '../../../../utils/data/types'
 import { useForm } from 'react-hook-form'
-import styles from '../../../../styles/pages/character.module.scss'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
-import { preventImageDrag } from '../../../../utils/helpers/preventImageDrag'
 import SearchBar from '../../../global/SearchBar'
 import PlatformSelect from '../../../global/PlatformSelect'
 import CharacterFrameData from '../CharacterFrameData'
 import ResetFrameData from './components/ResetFrameData'
 import FilteredFrameDataProvider from '../../../../context/filteredFrameDataContext'
 import SortBySelect from '../../../global/SortBySelect'
+import { CharKeys, FrameData } from '../../../../utils/data/types'
+import { preventImageDrag } from '../../../../utils/helpers/preventImageDrag'
+import styles from '../../../../styles/pages/character.module.scss'
+import { useMediaQuery } from '../../../../hooks/useMediaQuery'
 
 interface CharacterPageProps {
   id: CharKeys
@@ -36,19 +37,28 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ id }) => {
   const currentCharacterSrc = `/characters/${id}.png`
   const currentCharacterFrameData = frameData[id] as FrameData
 
+  const maxWidth850 = useMediaQuery('(max-width: 850px)')
+  const maxWidth570 = useMediaQuery('(max-width: 570px)')
+
+  const imageSize = maxWidth850 ? 300 : 400
+
   return (
     <FilteredFrameDataProvider {...{ currentCharacterFrameData }}>
       <main className={styles.container}>
         <NextSeo title={`Frame Data | ${currentCharacterCapitalized}`} />
         <section className={styles.characterContainer}>
-          <Image
-            src={currentCharacterSrc}
-            alt={id}
-            width={400}
-            height={400}
-            objectFit="cover"
-            {...preventImageDrag}
-          />
+          {!maxWidth570 ? (
+            <Image
+              src={currentCharacterSrc}
+              alt={id}
+              width={imageSize}
+              height={imageSize}
+              objectFit="cover"
+              {...preventImageDrag}
+            />
+          ) : (
+            <div />
+          )}
           <div>
             <h1>{currentCharacterName}</h1>
             <div>

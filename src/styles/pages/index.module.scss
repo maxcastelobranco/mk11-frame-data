@@ -14,8 +14,9 @@
   align-items: center;
 
   h1 {
+    margin: 2rem 0;
     color: $yellow;
-    font-family: mkserif, sans-serif;
+    font-family: $font-family-custom;
     text-transform: uppercase;
   }
 }

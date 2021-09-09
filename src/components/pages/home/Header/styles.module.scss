@@ -5,7 +5,13 @@
   width: 100%;
   position: relative;
   background-color: rgba(0,0,0,.7);
-  padding: .75rem 1.25rem;
+  padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
+
+  @media (max-width: 680px) {
+    form {
+      margin-left: auto;
+    }
+  }
 }

@@ -12,10 +12,10 @@
   }
 
   h3 {
-    font-family: mkserif, sans-serif;
+    font-family: $font-family-custom;
     color: $yellow;
-    font-size: .75rem;
-    margin-right: 1rem;
+    font-size: $font-size-sm;
+    margin-right: .5rem;
     transition: color $default-transition 500ms;
   }
 

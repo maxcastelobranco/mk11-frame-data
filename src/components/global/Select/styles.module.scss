@@ -1,28 +1,29 @@
 @use "../../../styles/variables" as *;
 
 .container {
-  $height: 48px;
-  $width: $height * 4;
+  --height: 40px;
+  --width: calc(var(--height) * 5);
+  height: var(--height);
+  align-self: center;
   display: flex;
   align-items: center;
   margin-left: auto;
   position: relative;
-  z-index: 100;
+  font-size: $font-size-sm;
 
   h3 {
-    font-family: mkserif, sans-serif;
+    font-family: $font-family-custom;
     color: $yellow;
-    font-size: .75rem;
-    margin-right: 1rem;
+    margin-right: .5rem;
   }
 
   div {
-    height: $height;
-    width: $width;
+    height: var(--height);
+    width: var(--width);
     text-transform: capitalize;
 
-    font-size: .75rem;
-    font-family: mkserif, sans-serif;
+    font-family: $font-family-custom;
+    font-size: $font-size-sm;
     font-weight: 700;
 
     cursor: pointer;
@@ -34,32 +35,33 @@
 
     p:first-child {
       margin: 0;
-      width: $width;
-      height: $height;
+      width: var(--width);
+      height: var(--height);
       display: flex;
       align-items: center;
       justify-content: center;
       color: $light;
-      padding: 0 $height 0 0;
+      padding: 0 var(--height) 0 0;
     }
 
     ul {
+      z-index: 100;
       margin: 0;
       padding: 0;
       position: absolute;
       left: 0;
-      width: $width;
+      width: var(--width);
     }
 
     li {
       margin: 0;
       padding: 0;
-      width: $width;
-      height: $height;
+      width: var(--width);
+      height: var(--height);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: mkserif, sans-serif;
+      font-family: $font-family-custom;
       background: linear-gradient(180deg,$gray-dark,#000);
       border: $default-border;
       color: $light;
@@ -80,8 +82,8 @@
 
   .customArrow {
     pointer-events: none;
-    width: 3rem;
-    height: $height;
+    width: 2.5rem;
+    height: var(--height);
     position: absolute;
     top: 0;
     right: 0;
@@ -105,6 +107,11 @@
       fill: $text;
       transform: rotate(180deg);
     }
+  }
+
+  @media (max-width: 680px) {
+    font-size: $font-size-sm * .8;
+    --width: calc(var(--height) * 4);
   }
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
+import containerStyles from '../../../../styles.module.scss'
 import styles from './styles.module.scss'
+import { useFilteredFrameDataContext } from '../../../../../../../../context/filteredFrameDataContext'
 
 interface DamageProps {
   damage: string | undefined
@@ -12,29 +14,38 @@ const Damage: React.FC<DamageProps> = ({
   blockDamage,
   flawlessBlockDamage,
 }) => {
+  const { sortOption } = useFilteredFrameDataContext()
+
   const damageMap = [
     {
       title: 'Damage',
+      key: 'damage',
       value: damage,
     },
     {
       title: 'Block Damage',
+      key: 'blockDamage',
       value: blockDamage,
     },
     {
-      title: 'Flawless Block Damage',
+      title: 'F/B Damage',
+      key: 'flawlessBlockDamage',
       value: flawlessBlockDamage,
     },
   ]
 
   return (
     <ul className={styles.container}>
-      {damageMap.map(({ title, value }) => (
-        <li key={title}>
-          <p>{title}</p>
-          <span>{value || 'N/A'}</span>
-        </li>
-      ))}
+      {damageMap.map(({ title, value, key }) => {
+        const isActive = sortOption === key
+
+        return (
+          <li key={key} className={isActive ? containerStyles.activeItem : ''}>
+            <p>{title}</p>
+            <span>{value || 'N/A'}</span>
+          </li>
+        )
+      })}
     </ul>
   )
 }

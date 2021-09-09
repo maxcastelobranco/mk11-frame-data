@@ -41,7 +41,7 @@ const Select: React.FC<SelectProps> = ({
         <ul
           style={{
             pointerEvents: isOpen ? 'initial' : 'none',
-            bottom: -1 * 48 * options.length,
+            bottom: -1 * 40 * options.length,
           }}
         >
           {options.map((option, index) => {

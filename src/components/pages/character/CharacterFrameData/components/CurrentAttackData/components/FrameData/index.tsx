@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
+import containerStyles from '../../../../styles.module.scss'
+import { useFilteredFrameDataContext } from '../../../../../../../../context/filteredFrameDataContext'
 
 interface FrameDataProps {
   startup: string | undefined
@@ -20,45 +22,58 @@ const FrameData: React.FC<FrameDataProps> = ({
   blockAdvantage,
   flawlessBlockAdvantage,
 }) => {
+  const { sortOption } = useFilteredFrameDataContext()
+
   const frameDataMap = [
     {
-      title: 'Startup',
+      key: 'startup',
       value: startup,
+      title: 'Startup',
     },
     {
-      title: 'Active',
+      key: 'active',
       value: active,
+      title: 'Active',
     },
     {
-      title: 'Recovery',
+      key: 'recovery',
       value: recovery,
+      title: 'Recovery',
     },
     {
-      title: 'Cancel Advantage',
+      key: 'cancelAdvantage',
       value: cancelAdvantage,
+      title: 'Cancel Adv.',
     },
     {
-      title: 'Hit Advantage',
+      key: 'hitAdvantage',
       value: hitAdvantage,
+      title: 'Hit Adv.',
     },
     {
-      title: 'Block Advantage',
+      key: 'blockAdvantage',
       value: blockAdvantage,
+      title: 'Block Adv.',
     },
     {
-      title: 'Flawless Block Advantage',
+      key: 'flawlessBlockAdvantage',
       value: flawlessBlockAdvantage,
+      title: 'F/B Adv.',
     },
   ]
 
   return (
     <ul className={styles.container}>
-      {frameDataMap.map(({ title, value }) => (
-        <li key={title}>
-          <p>{title}</p>
-          <span>{value || 'N/A'}</span>
-        </li>
-      ))}
+      {frameDataMap.map(({ title, value, key }) => {
+        const isActive = sortOption === key
+
+        return (
+          <li key={key} className={isActive ? containerStyles.activeItem : ''}>
+            <p>{title}</p>
+            <span>{value || 'N/A'}</span>
+          </li>
+        )
+      })}
     </ul>
   )
 }

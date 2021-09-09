@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   overflow: hidden;
+  max-height: 70%;
 
   header {
     display: flex;
@@ -17,9 +18,13 @@
     border: $default-border;
 
     button {
-      font-family: "mkserif", sans-serif;
-      font-size: .75rem;
+      font-family: $font-family-custom;
+      font-size: $font-size-sm;
       transition: text-shadow 500ms ease, color 500ms ease;
+
+      @media (max-width: 680px) {
+        font-size: $font-size-sm * .8;
+      }
     }
 
     > div:last-child {
@@ -33,7 +38,7 @@
   display: flex;
   background: $black-gradient;
   border-radius: 4px;
-  max-height: 90%;
+  overflow: hidden;
 }
 
 .frameDataSlide {
@@ -55,13 +60,13 @@
       top: 0;
       margin: 0;
       padding-bottom: .6rem;
-      z-index: 100;
+      z-index: 1000;
     }
 
     h3 {
-      font-family: mkserif, sans-serif;
+      font-family: $font-family-custom;
       color: $yellow;
-      font-size: .75rem;
+      font-size: $font-size-sm;
       margin: 1rem 0;
     }
 
@@ -79,11 +84,14 @@
         justify-content: space-between;
         color: $gray;
         padding-bottom: .5rem;
+        padding-top: .5rem;
         border-bottom: $default-border;
         transition: color 250ms ease, text-shadow 250ms ease;
         position: relative;
 
         > span {
+          display: flex;
+          align-items: center;
           z-index: 100;
           padding: 0 .5rem;
         }
@@ -128,15 +136,16 @@
   }
 
   section:nth-child(2) {
+    overflow-y: auto;
     display: grid;
-    grid-template-rows: 5% 50% 5% 35%;
+    grid-template-rows: 20px 200px 20px 85px;
     grid-template-columns: repeat(7, 1fr);
     grid-template-areas:
       "title1 title1 title1 title1 title1 title1 title1"
       "dmg dmg type type type info info"
       "title2 title2 title2 title2 title2 title2 title2"
       "fd fd fd fd fd fd fd";
-    gap: .6rem;
+    gap: 1rem;
 
     .moveDataTitle {
       grid-area: title1;
@@ -171,9 +180,9 @@
       margin: 0;
       padding: 0;
       text-align: center;
-      font-family: mkserif, sans-serif;
+      font-family: $font-family-custom;
       color: $yellow;
-      font-size: .75rem;
+      font-size: $font-size-sm;
     }
   }
 
@@ -192,5 +201,17 @@
 
   &:hover {
     text-shadow: 0 0 2px $yellow;
+  }
+}
+
+.activeItem {
+  border: $default-border;
+  padding: .5rem;
+  border-radius: 4px;
+  text-shadow: 0 0 4px $gray;
+  transition: all 250ms ease;
+
+  span {
+    text-shadow: 0 0 4px $yellow;
   }
 }

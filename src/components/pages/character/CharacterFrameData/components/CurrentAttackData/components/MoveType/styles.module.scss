@@ -29,3 +29,18 @@
     }
   }
 }
+
+.activeItem {
+  border: $default-border;
+  padding: .25rem .5rem;
+  border-radius: 4px;
+  transition: all 250ms ease;
+
+  p {
+    text-shadow: 0 0 4px $gray;
+  }
+
+  span {
+    text-shadow: 0 0 4px $yellow;
+  }
+}
