@@ -52,7 +52,6 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding-right: 1.2rem;
 
     h3:first-child {
       text-align: center;
@@ -186,6 +185,12 @@
     }
   }
 
+  @media (max-width: 680px) {
+    gap: 0;
+    section:nth-child(2) {
+      gap: .5rem;
+    }
+  }
 }
 
 .button {

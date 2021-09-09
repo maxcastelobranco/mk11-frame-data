@@ -22,13 +22,6 @@
   align-items: center;
   position: relative;
 
-  > div:first-child {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 100;
-  }
-
   > div:nth-child(2) {
     margin-top: 1rem;
     width: 100%;
@@ -71,6 +64,7 @@
         > button:nth-child(2) {
           grid-area: reset;
           margin: 0;
+          width: 125px;
         }
         > div:nth-child(3) {
           grid-area: sort;
@@ -115,7 +109,7 @@
   @media (max-width: 570px) {
     > div:nth-child(2) {
       > h1 {
-        padding-top: .5rem;
+        padding: 1rem 0;
         display: flex;
         align-items: center;
         justify-content: center;

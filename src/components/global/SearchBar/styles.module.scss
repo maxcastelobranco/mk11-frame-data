@@ -96,4 +96,8 @@
       }
     }
   }
+
+  @media (max-width: 385px) {
+    --input-width: calc(var(--size) * 3);
+  }
 }

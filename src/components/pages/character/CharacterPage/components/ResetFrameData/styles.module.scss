@@ -26,6 +26,10 @@
       transition: fill $default-transition 500ms;
     }
   }
+
+  @media (min-width: 1300px) {
+    margin-left: .75rem;
+  }
 }
 
 .disabled {

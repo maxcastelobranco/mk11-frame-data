@@ -109,9 +109,20 @@
     }
   }
 
+  @media (max-width: 785px) {
+    h3 {
+      width: 95px;
+    }
+  }
+
+
   @media (max-width: 680px) {
     font-size: $font-size-sm * .8;
     --width: calc(var(--height) * 4);
+
+    h3 {
+      width: 70px;
+    }
   }
 }
 
