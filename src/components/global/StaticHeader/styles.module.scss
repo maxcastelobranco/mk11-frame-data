@@ -1,9 +1,9 @@
-@use "../../../../styles/variables" as *;
+@use "../../../styles/variables" as *;
 
 .container {
-  top: 0;
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
   background-color: rgba(0,0,0,.7);
   padding: 1rem 1.25rem;
   display: flex;
@@ -13,9 +13,7 @@
     cursor: pointer;
   }
 
-  @media (max-width: 680px) {
-    form {
-      margin-left: auto;
-    }
+  @media (max-width: 380px) {
+   justify-content: center;
   }
 }
