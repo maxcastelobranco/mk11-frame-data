@@ -26,8 +26,8 @@ const Header: React.FC<HeaderProps> = ({
   setRosterPortion,
 }) => {
   const { register, handleSubmit, setFocus } = useForm<HeaderFormData>()
-  const mw850 = useMediaQuery('(max-width: 850px)')
-  const mw680 = useMediaQuery('(max-width: 680px)')
+  const maxWidth850 = useMediaQuery('(max-width: 850px)')
+  const maxWidth680 = useMediaQuery('(max-width: 680px)')
 
   const onSubmit: SubmitHandler<HeaderFormData> = ({ searchQuery }) => {
     if (searchQuery) {
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
     }
   }
 
-  const logo = mw850 ? (
+  const logo = maxWidth850 ? (
     <Image
       alt="frame data logo"
       src="/frame-data-small-logo.png"
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({
         onSubmit={handleSubmit(onSubmit)}
         {...{ register, setFocus }}
       />
-      {!mw680 && <PlatformSelect />}
+      {!maxWidth680 && <PlatformSelect />}
     </header>
   )
 }
