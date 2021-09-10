@@ -8,6 +8,7 @@ import BasicAttacks from './components/slides/BasicAttacks'
 import SpecialMoves from './components/slides/SpecialMoves'
 import Finishers from './components/slides/Finishers'
 import { useNavigateAttackTypes } from '../../../../hooks/useNavigateAttackTypes'
+import { useMediaQuery } from '../../../../hooks/useMediaQuery'
 
 type AttackTypes =
   | 'Basic Attacks'
@@ -21,24 +22,6 @@ const attackTypes: AttackTypes[] = [
   'Special moves',
   'Finishers',
 ]
-const variants: Variants = {
-  initial: (direction: number) => {
-    return {
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
-    }
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      x: direction < 0 ? 100 : -100,
-      opacity: 0,
-    }
-  },
-}
 const transition: Transition = {
   x: { type: 'spring', stiffness: 400, damping: 30 },
   opacity: { duration: 0.2 },
@@ -72,6 +55,30 @@ const CharacterFrameData: React.FC = () => {
   }
 
   useNavigateAttackTypes({ paginate })
+
+  const maxWidth768 = useMediaQuery('(max-width:768px)')
+  const maxWidth1024 = useMediaQuery('(max-width:1024px)')
+
+  const directionMultiplier = maxWidth768 ? 10 : maxWidth1024 ? 100 : 500
+
+  const variants: Variants = {
+    initial: (direction: number) => {
+      return {
+        x: direction > 0 ? directionMultiplier : -1 * directionMultiplier,
+        opacity: 0,
+      }
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => {
+      return {
+        x: direction < 0 ? 100 : -100,
+        opacity: 0,
+      }
+    },
+  }
 
   return (
     <div className={styles.container}>
