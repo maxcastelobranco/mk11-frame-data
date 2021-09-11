@@ -90,34 +90,21 @@ const FilteredFrameDataProvider: React.FC<FilteredFrameDataContextProps> = ({
             abilities,
           } = prevState
 
+          const sortFunction = sortMap[newSortOption]
+
           return {
             ...prevState,
-            basicAttacks: customSortFunction(
-              basicAttacks,
-              sortMap[newSortOption]
-            ),
-            jumpingAttacks: customSortFunction(
-              jumpingAttacks,
-              sortMap[newSortOption]
-            ),
-            hopAttacks: customSortFunction(hopAttacks, sortMap[newSortOption]),
-            getupAttacks: customSortFunction(
-              getupAttacks,
-              sortMap[newSortOption]
-            ),
+            basicAttacks: customSortFunction(basicAttacks, sortFunction),
+            jumpingAttacks: customSortFunction(jumpingAttacks, sortFunction),
+            hopAttacks: customSortFunction(hopAttacks, sortFunction),
+            getupAttacks: customSortFunction(getupAttacks, sortFunction),
             flawlessBlockAttacks: customSortFunction(
               flawlessBlockAttacks,
-              sortMap[newSortOption]
+              sortFunction
             ),
-            komboAttacks: customSortFunction(
-              komboAttacks,
-              sortMap[newSortOption]
-            ),
-            specialMoves: customSortFunction(
-              specialMoves,
-              sortMap[newSortOption]
-            ),
-            abilities: customSortFunction(abilities, sortMap[newSortOption]),
+            komboAttacks: customSortFunction(komboAttacks, sortFunction),
+            specialMoves: customSortFunction(specialMoves, sortFunction),
+            abilities: customSortFunction(abilities, sortFunction),
           }
         })
       }

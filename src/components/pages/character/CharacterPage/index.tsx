@@ -13,6 +13,7 @@ import { CharKeys, FrameData } from '../../../../utils/data/types'
 import { preventImageDrag } from '../../../../utils/helpers/preventImageDrag'
 import styles from '../../../../styles/pages/character.module.scss'
 import { useMediaQuery } from '../../../../hooks/useMediaQuery'
+import Copyright from '../../../global/Copyright'
 
 interface CharacterPageProps {
   id: CharKeys
@@ -74,6 +75,7 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ id }) => {
           </div>
         </section>
         <CharacterFrameData />
+        <Copyright />
       </main>
     </FilteredFrameDataProvider>
   )

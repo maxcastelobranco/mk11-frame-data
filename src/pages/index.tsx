@@ -10,6 +10,7 @@ import Character from '../components/pages/home/Character'
 import { AnimatePresence, motion } from 'framer-motion'
 import CustomParticles from '../components/global/CustomParticles'
 import { NextSeo } from 'next-seo'
+import Copyright from '../components/global/Copyright'
 
 const Home: NextPage = () => {
   const [rosterPortion, setRosterPortion] =
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
           ))}
         </motion.section>
       </AnimatePresence>
+      <Copyright />
     </main>
   )
 }

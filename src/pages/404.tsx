@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import styles from '../styles/pages/404.module.scss'
 import StaticHeader from '../components/global/StaticHeader'
+import Copyright from '../components/global/Copyright'
 
 const IMAGE_HEIGHT = 350
 const IMAGE_RATIO = 0.80769230769
@@ -21,6 +22,7 @@ const Custom404: NextPage = () => {
         quality={100}
         priority
       />
+      <Copyright style={{ position: 'absolute', bottom: 0 }} />
     </div>
   )
 }

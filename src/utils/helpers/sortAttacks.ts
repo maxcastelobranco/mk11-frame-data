@@ -4,8 +4,6 @@ export const customSortFunction = (
   array: AttackData[],
   sortFunction: (a: AttackData, b: AttackData) => number
 ) => {
-  const arrayCopy = array.slice()
-
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - 1; j++) {
       if (sortFunction(array[j], array[j + 1]) > 0) {
@@ -15,7 +13,7 @@ export const customSortFunction = (
       }
     }
   }
-  return arrayCopy
+  return array
 }
 
 export const sortByMoveName = (a: AttackData, b: AttackData) => {
