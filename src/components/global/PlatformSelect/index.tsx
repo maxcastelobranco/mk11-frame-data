@@ -22,7 +22,7 @@ const PlatformSelect: React.FC = () => {
     <Select
       {...{ options, onClick }}
       activeOption={currentNotation}
-      title="Notation"
+      title="Platform"
     />
   )
 }

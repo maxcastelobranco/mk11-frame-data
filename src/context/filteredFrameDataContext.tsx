@@ -71,40 +71,59 @@ const FilteredFrameDataProvider: React.FC<FilteredFrameDataContextProps> = ({
     setFilteredCharacterFrameData(newFrameData)
   }, [currentCharacterFrameData])
 
-  const sortFrameData = useCallback((newSortOption: SortOptions) => {
-    setSortOption(newSortOption)
+  const sortFrameData = useCallback(
+    (newSortOption: SortOptions) => {
+      if (newSortOption === sortOption) {
+        resetFrameData()
+      } else {
+        setSortOption(newSortOption)
 
-    setFilteredCharacterFrameData((prevState) => {
-      const {
-        basicAttacks,
-        jumpingAttacks,
-        hopAttacks,
-        getupAttacks,
-        flawlessBlockAttacks,
-        komboAttacks,
-        specialMoves,
-        abilities,
-      } = prevState
+        setFilteredCharacterFrameData((prevState) => {
+          const {
+            basicAttacks,
+            jumpingAttacks,
+            hopAttacks,
+            getupAttacks,
+            flawlessBlockAttacks,
+            komboAttacks,
+            specialMoves,
+            abilities,
+          } = prevState
 
-      return {
-        ...prevState,
-        basicAttacks: customSortFunction(basicAttacks, sortMap[newSortOption]),
-        jumpingAttacks: customSortFunction(
-          jumpingAttacks,
-          sortMap[newSortOption]
-        ),
-        hopAttacks: customSortFunction(hopAttacks, sortMap[newSortOption]),
-        getupAttacks: customSortFunction(getupAttacks, sortMap[newSortOption]),
-        flawlessBlockAttacks: customSortFunction(
-          flawlessBlockAttacks,
-          sortMap[newSortOption]
-        ),
-        komboAttacks: customSortFunction(komboAttacks, sortMap[newSortOption]),
-        specialMoves: customSortFunction(specialMoves, sortMap[newSortOption]),
-        abilities: customSortFunction(abilities, sortMap[newSortOption]),
+          return {
+            ...prevState,
+            basicAttacks: customSortFunction(
+              basicAttacks,
+              sortMap[newSortOption]
+            ),
+            jumpingAttacks: customSortFunction(
+              jumpingAttacks,
+              sortMap[newSortOption]
+            ),
+            hopAttacks: customSortFunction(hopAttacks, sortMap[newSortOption]),
+            getupAttacks: customSortFunction(
+              getupAttacks,
+              sortMap[newSortOption]
+            ),
+            flawlessBlockAttacks: customSortFunction(
+              flawlessBlockAttacks,
+              sortMap[newSortOption]
+            ),
+            komboAttacks: customSortFunction(
+              komboAttacks,
+              sortMap[newSortOption]
+            ),
+            specialMoves: customSortFunction(
+              specialMoves,
+              sortMap[newSortOption]
+            ),
+            abilities: customSortFunction(abilities, sortMap[newSortOption]),
+          }
+        })
       }
-    })
-  }, [])
+    },
+    [resetFrameData, sortOption]
+  )
 
   const currentCharacterFrameDataAbsoluteCount = useMemo(() => {
     let count = 0

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import containerStyles from '../../../../styles.module.scss'
 import { useFilteredFrameDataContext } from '../../../../../../../../context/filteredFrameDataContext'
+import { SortOptions } from '../../../../../../../../utils/helpers/sortAttacks'
 
 interface FrameDataProps {
   startup: string | undefined
@@ -22,9 +23,13 @@ const FrameData: React.FC<FrameDataProps> = ({
   blockAdvantage,
   flawlessBlockAdvantage,
 }) => {
-  const { sortOption } = useFilteredFrameDataContext()
+  const { sortOption, sortFrameData } = useFilteredFrameDataContext()
 
-  const frameDataMap = [
+  const frameDataMap: {
+    title: string
+    key: SortOptions
+    value: string | undefined
+  }[] = [
     {
       key: 'startup',
       value: startup,
@@ -68,7 +73,12 @@ const FrameData: React.FC<FrameDataProps> = ({
         const isActive = sortOption === key
 
         return (
-          <li key={key} className={isActive ? containerStyles.activeItem : ''}>
+          <li
+            key={key}
+            className={isActive ? containerStyles.activeItem : ''}
+            onClick={() => sortFrameData(key)}
+            role="button"
+          >
             <p>{title}</p>
             <span>{value || 'N/A'}</span>
           </li>

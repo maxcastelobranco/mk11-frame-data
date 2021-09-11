@@ -9,7 +9,7 @@ interface MoveTypeProps {
 }
 
 const MoveType: React.FC<MoveTypeProps> = ({ moveType }) => {
-  const { sortOption } = useFilteredFrameDataContext()
+  const { sortOption, sortFrameData } = useFilteredFrameDataContext()
   const isActive = sortOption === 'moveType'
 
   const className = isActive
@@ -17,7 +17,11 @@ const MoveType: React.FC<MoveTypeProps> = ({ moveType }) => {
     : styles.container
 
   return (
-    <div {...{ className }}>
+    <div
+      {...{ className }}
+      onClick={() => sortFrameData('moveType')}
+      role="button"
+    >
       <p>Move type</p>
       {moveType ? (
         <div>
