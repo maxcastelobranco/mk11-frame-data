@@ -148,7 +148,7 @@ export interface FrameData {
   finishers: FinishersData
   fatalBlow: AttackData
 }
-// export type RosterFrameData = Record<CharKeys, FrameData>
+export type RosterFrameData = Record<CharKeys, FrameData>
 
 export const emptyAttack: AttackData = {
   key: '',

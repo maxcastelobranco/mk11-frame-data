@@ -1,5 +1,4 @@
 import React from 'react'
-import frameData from '../../../../utils/data/frameData.json'
 import { useForm } from 'react-hook-form'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
@@ -17,13 +16,17 @@ import Copyright from '../../../global/Copyright'
 
 interface CharacterPageProps {
   id: CharKeys
+  currentCharacterFrameData: FrameData
 }
 
 export interface CharacterFormData {
   searchQuery: string
 }
 
-const CharacterPage: React.FC<CharacterPageProps> = ({ id }) => {
+const CharacterPage: React.FC<CharacterPageProps> = ({
+  id,
+  currentCharacterFrameData,
+}) => {
   const { register, handleSubmit, reset, setFocus } =
     useForm<CharacterFormData>()
 
@@ -36,7 +39,6 @@ const CharacterPage: React.FC<CharacterPageProps> = ({ id }) => {
     })
     .join(' ')
   const currentCharacterSrc = `/characters/${id}.png`
-  const currentCharacterFrameData = frameData[id] as FrameData
 
   const maxWidth850 = useMediaQuery('(max-width: 850px)')
   const maxWidth570 = useMediaQuery('(max-width: 570px)')

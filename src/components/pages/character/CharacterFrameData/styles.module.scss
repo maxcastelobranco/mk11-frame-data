@@ -226,11 +226,7 @@
 }
 
 .activeItem {
-  border: $default-border;
-  padding: .25rem;
-  border-radius: 4px;
   text-shadow: 0 0 4px $gray;
-  transition: all 250ms ease;
 
   span {
     text-shadow: 0 0 4px $yellow;
