@@ -16,8 +16,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preload" as="image" href="character-bg.png" />
-          <link rel="preload" as="image" href="roster-bg.png" />
+          <link rel="preload" as="image" href="/character-bg.png" />
+          <link rel="preload" as="image" href="/roster-bg.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"

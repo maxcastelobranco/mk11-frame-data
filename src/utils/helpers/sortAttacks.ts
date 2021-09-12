@@ -20,11 +20,15 @@ export const sortByMoveName = (a: AttackData, b: AttackData) => {
   return Number(a.moveName > b.moveName)
 }
 
-export const sortByNotation = (a: AttackData, b: AttackData) => {
-  const reverseString = (str: string) => {
-    return str.split('').reverse().join('')
-  }
-  return Number(reverseString(a.notation) > reverseString(b.notation))
+const sortByNotation = (a: AttackData, b: AttackData) => {
+  const aNumbers = a.notation.replace(/\D+/g, '')
+  const bNumbers = b.notation.replace(/\D+/g, '')
+
+  return Number(
+    aNumbers[0] === bNumbers[0]
+      ? a.notation.localeCompare(b.notation, undefined, { numeric: true })
+      : aNumbers > bNumbers
+  )
 }
 
 export const sortByDamage = (a: AttackData, b: AttackData) => {
