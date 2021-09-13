@@ -33,10 +33,10 @@
 
 .activeItem {
   p {
-    text-shadow: 0 0 4px $gray;
+    text-shadow: $gray-shadow;
   }
 
   span {
-    text-shadow: 0 0 4px $yellow;
+    text-shadow: $yellow-shadow-medium;
   }
 }

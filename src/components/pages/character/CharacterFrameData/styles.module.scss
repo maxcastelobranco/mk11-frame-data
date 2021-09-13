@@ -16,6 +16,7 @@
     border-radius: 4px;
     background: $black-gradient;
     border: $default-border;
+    box-shadow: $dark-shadow-medium;
 
     button {
       font-family: $font-family-custom;
@@ -39,6 +40,7 @@
   background: $black-gradient;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: $dark-shadow-medium;
 }
 
 .frameDataSlide {
@@ -116,7 +118,7 @@
 
         &.activeAttack {
           color: $yellow;
-          text-shadow: 0 0 4px $yellow;
+          text-shadow: $yellow-shadow-medium;
           &:before {
             opacity: 1;
           }
@@ -221,14 +223,14 @@
   color: $yellow;
 
   &:hover {
-    text-shadow: 0 0 2px $yellow;
+    text-shadow: $yellow-shadow-small;
   }
 }
 
 .activeItem {
-  text-shadow: 0 0 4px $gray;
+  text-shadow: $gray-shadow;
 
   span {
-    text-shadow: 0 0 4px $yellow;
+    text-shadow: $yellow-shadow-medium;
   }
 }

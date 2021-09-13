@@ -40,7 +40,7 @@
 .activeButton {
   color: $text!important;
   background-color: $yellow;
-  box-shadow: 0 0 12px $yellow;
+  box-shadow:$yellow-shadow-large;
 
   &::before {
     opacity: 1!important;

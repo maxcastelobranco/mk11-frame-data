@@ -24,6 +24,15 @@ $black-gradient: linear-gradient(180deg,transparent,#000);
 $gray-gradient: linear-gradient(180deg,transparent,$gray-dark);
 
 $yellow-shadow: 0 0 8px $yellow;
+$yellow-shadow-small: 0 0 2px $yellow;
+$yellow-shadow-medium: 0 0 4px $yellow;
+$yellow-shadow-large: 0 0 12px $yellow;
+
+$dark-shadow: 0 0 8px $gray-dark;
+$dark-shadow-medium: 0 0 4px $gray-dark;
+
+$gray-shadow: 0 0 4px $gray;
+
 $default-border: 1px solid hsla(0,0%,100%,.1);
 
 $default-transition: cubic-bezier(0.01, 0.29, 0, 1);

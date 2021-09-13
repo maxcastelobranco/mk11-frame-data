@@ -87,16 +87,6 @@
     }
   }
 
-  @media (max-width: 680px) {
-    input {
-      font-size: $font-size-sm * .8;
-
-      &::placeholder{
-        font-size: $font-size-sm * .8;
-      }
-    }
-  }
-
   @media (max-width: 385px) {
     --input-width: calc(var(--size) * 3);
   }
