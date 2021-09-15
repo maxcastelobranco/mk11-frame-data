@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #000 url("/roster-bg.png") no-repeat fixed center center;
+  background: #000 url("/roster-bg.png") no-repeat fixed center / cover;
 
   h1 {
     margin: 2rem 0;
