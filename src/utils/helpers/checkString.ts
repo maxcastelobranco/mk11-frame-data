@@ -1,14 +1,7 @@
 export const checkString = (str: string | undefined, test: string) => {
-  if (!str) {
-    return null
-  }
+  if (!str) return false
 
-  const pattern = test
-    .split('')
-    .map((x) => {
-      return `(?=.*${x})`
-    })
-    .join('')
-  const regex = new RegExp(`${pattern}`, 'g')
-  return str.match(regex)
+  const pattern = new RegExp(test.split('').join('.*'))
+
+  return str.match(pattern)
 }
