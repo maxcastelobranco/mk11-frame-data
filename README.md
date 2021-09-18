@@ -17,7 +17,10 @@
 ### Home Page
 ![Home](/.github/home.gif)
 
-### Filter trough roster portion
+### Responsive Home Page
+![ResponsiveHome](/.github/responsiveHome.gif)
+
+### Filter Trough Roster Portion
 ![RosterPortion](/.github/rosterPortion.gif)
 
 ### Home Page Search
@@ -25,6 +28,9 @@
 
 ### Character Page
 ![Character](/.github/character.gif)
+
+### Responsive Character Page
+![ResponsiveChar](/.github/responsiveChar.gif)
 
 ### Character Page Keyboard Navigation
 ![KeyNav](/.github/keyNav.gif)
