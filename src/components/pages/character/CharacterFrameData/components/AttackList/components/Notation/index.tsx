@@ -167,10 +167,18 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
       )
     }
 
-    if (character === 'R') {
+    if (character === 'R' && allCharacters[index + 1] === 'e') {
       platformSpecificNotation.push(
         <span key={index} className={styles.marginBoth}>
           Release
+        </span>
+      )
+    }
+
+    if (character === 'R' && allCharacters[index + 1] === 'a') {
+      platformSpecificNotation.push(
+        <span key={index} className={styles.marginBoth}>
+          Rapidly
         </span>
       )
     }
