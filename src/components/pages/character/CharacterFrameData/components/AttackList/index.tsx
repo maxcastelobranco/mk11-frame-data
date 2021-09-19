@@ -23,7 +23,7 @@ const AttackList: React.FC<AttackListProps> = ({
   const minWidth570 = useMediaQuery('(min-width:570px)')
   return (
     <>
-      {title !== 'Input Commands' && <h3>{title}</h3>}
+      {title !== 'Input Commands' && attackList.length > 0 && <h3>{title}</h3>}
       {title === 'Input Commands' && minWidth950 && <h3>{title}</h3>}
       <ul>
         {attackList.map((attack) => {

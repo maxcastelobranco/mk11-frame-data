@@ -30,11 +30,13 @@ const SpecialMoves: React.FC = () => {
           attackList={specialMoves}
           {...{ currentAttack, setCurrentAttack, activeAttackRef }}
         />
-        <AttackList
-          attackList={[fatalBlow]}
-          title="Fatal Blow"
-          {...{ currentAttack, setCurrentAttack, activeAttackRef }}
-        />
+        {fatalBlow.notation !== "" && (
+          <AttackList
+            attackList={[fatalBlow]}
+            title="Fatal Blow"
+            {...{ currentAttack, setCurrentAttack, activeAttackRef }}
+          />
+        )}
         <AttackList
           attackList={abilities}
           title="Abilities"
