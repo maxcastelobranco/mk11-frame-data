@@ -34,8 +34,9 @@ const AttackList: React.FC<AttackListProps> = ({
               <li
                 ref={isActive && activeAttackRef ? activeAttackRef : undefined}
                 onClick={() => setCurrentAttack(attack)}
-                role="button"
                 className={isActive ? styles.activeAttack : ''}
+                role="button"
+                tabIndex={0}
               >
                 {minWidth570 && <span>{attack.moveName}</span>}
                 <Notation notation={attack.notation} />

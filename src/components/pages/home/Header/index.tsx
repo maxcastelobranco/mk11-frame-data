@@ -55,6 +55,8 @@ const Header: React.FC<HeaderProps> = ({
       width={100}
       height={72}
       objectFit="contain"
+      role="link"
+      tabIndex={0}
     />
   ) : (
     <Image
@@ -63,6 +65,8 @@ const Header: React.FC<HeaderProps> = ({
       width={240}
       height={72}
       objectFit="contain"
+      role="link"
+      tabIndex={0}
     />
   )
 

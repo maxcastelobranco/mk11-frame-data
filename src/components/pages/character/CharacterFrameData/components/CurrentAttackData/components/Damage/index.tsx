@@ -50,6 +50,7 @@ const Damage: React.FC<DamageProps> = ({
             className={isActive ? containerStyles.activeItem : ''}
             onClick={() => sortFrameData(key)}
             role="button"
+            tabIndex={0}
           >
             <p>{title}</p>
             <span>{value || 'N/A'}</span>

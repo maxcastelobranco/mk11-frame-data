@@ -105,11 +105,13 @@ const SearchBar = <T extends FieldValues>({
       />
       <button
         type="submit"
+        role="submit"
+        aria-label="submit character search"
         onFocus={() => {
           setFocus && setFocus(name)
         }}
       >
-        <Search />
+        <Search aria-label="search icon" />
       </button>
     </form>
   )

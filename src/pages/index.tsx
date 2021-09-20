@@ -20,7 +20,10 @@ const Home: NextPage = () => {
 
   return (
     <main className={styles.container}>
-      <NextSeo title="Frame Data | Home" />
+      <NextSeo
+        title="Frame Data | Home"
+        description="MkFrameData is a web app with the goal of making it easier to visualize and go through Mortal Kombat characters frame data"
+      />
       <CustomParticles />
       <Header
         {...{

@@ -36,9 +36,11 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div className={styles.container} ref={containerRef}>
       <h3>{title}</h3>
-      <div onClick={toggleOpen}>
+      <div onClick={toggleOpen} role="combobox" aria-expanded aria-controls="option-list" aria-label={`${title} select`}>
         <p>{activeOption}</p>
         <ul
+          id="option-list"
+          role="listbox"
           style={{
             pointerEvents: isOpen ? 'initial' : 'none',
             bottom: -1 * 40 * options.length,
@@ -57,6 +59,8 @@ const Select: React.FC<SelectProps> = ({
                   transform: `scale(${isOpen ? 1 : 0})`,
                   transitionDelay: `${index * 25}ms`,
                 }}
+                role="option"
+                aria-selected
               >
                 {formattedOption}
               </li>
@@ -71,7 +75,7 @@ const Select: React.FC<SelectProps> = ({
             : styles.customArrow
         }
       >
-        <ExpandMore />
+        <ExpandMore aria-label="select open indicator" />
       </span>
     </div>
   )

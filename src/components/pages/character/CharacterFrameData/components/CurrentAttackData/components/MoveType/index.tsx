@@ -21,6 +21,7 @@ const MoveType: React.FC<MoveTypeProps> = ({ moveType }) => {
       {...{ className }}
       onClick={() => sortFrameData('moveType')}
       role="button"
+      tabIndex={0}
     >
       <p>Move type</p>
       {moveType ? (

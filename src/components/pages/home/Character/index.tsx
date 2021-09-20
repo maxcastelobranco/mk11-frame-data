@@ -32,6 +32,7 @@ const Character: React.FC<CharacterProps> = ({
   return (
     <Link href={`/character/${key}`} passHref>
       <motion.button
+        role="link"
         className={styles.container}
         variants={characterVariants}
         initial="initial"

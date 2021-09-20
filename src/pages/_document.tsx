@@ -14,7 +14,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="preload" as="image" href="/character-bg.png" />
           <link rel="preload" as="image" href="/roster-bg.png" />
@@ -47,6 +47,8 @@ class MyDocument extends Document {
             href="/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="theme-color" content="#fda90f"/>
         </Head>
         <body>
           <Main />

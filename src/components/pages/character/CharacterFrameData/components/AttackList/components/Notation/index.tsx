@@ -69,6 +69,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           }`}
           width={16}
           height={16}
+          alt={`${currentNotation} ${currentPlatformMap[character]}`}
+          aria-label={`${currentNotation} ${currentPlatformMap[character]}`}
         />
       )
     }
@@ -87,6 +89,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           src={`/arrows/${directionalMap[character]}.svg`}
           width={16}
           height={16}
+          alt={`${directionalMap[character]} arrow`}
+          aria-label={`${directionalMap[character]} arrow`}
         />
       )
     }
@@ -100,6 +104,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           src={`/${currentNotation}/${currentPlatformMap.Block}.png`}
           width={24}
           height={16}
+          alt={`${currentNotation} ${currentPlatformMap.Block}`}
+          aria-label={`${currentNotation} ${currentPlatformMap.Block}`}
         />
       )
     }
@@ -113,6 +119,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           src={`/${currentNotation}/${currentPlatformMap.Throw}.png`}
           width={24}
           height={16}
+          alt={`${currentNotation} ${currentPlatformMap.Throw}`}
+          aria-label={`${currentNotation} ${currentPlatformMap.Throw}`}
         />
       )
     }
@@ -126,6 +134,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           src={`/${currentNotation}/${currentPlatformMap.AMP}.png`}
           width={24}
           height={16}
+          alt={`${currentNotation} ${currentPlatformMap.AMP}`}
+          aria-label={`${currentNotation} ${currentPlatformMap.AMP}`}
         />
       )
     }
@@ -139,6 +149,8 @@ const Notation: React.FC<NotationProps> = ({ notation }) => {
           src={`/${currentNotation}/${currentPlatformMap.SS}.png`}
           width={24}
           height={16}
+          alt={`${currentNotation} ${currentPlatformMap.SS}`}
+          aria-label={`${currentNotation} ${currentPlatformMap.SS}`}
         />
       )
     }

@@ -48,7 +48,10 @@ const CharacterPage: React.FC<CharacterPageProps> = ({
   return (
     <FilteredFrameDataProvider {...{ currentCharacterFrameData }}>
       <main className={styles.container}>
-        <NextSeo title={`Frame Data | ${currentCharacterCapitalized}`} />
+        <NextSeo
+          title={`Frame Data | ${currentCharacterCapitalized}`}
+          description={`Frame data page to list attacks, special moves and finishers, for Mortal Kombat 11 character: ${currentCharacterCapitalized}`}
+        />
         <section className={styles.characterContainer}>
           {!maxWidth570 ? (
             <Image
