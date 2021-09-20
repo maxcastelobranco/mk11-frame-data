@@ -6,6 +6,7 @@ export const filterAttacks = (attacks: AttackData[], searchQuery: string) => {
   if (/^-?\d*\.?\d+$/.test(searchQuery)) {
     return attacks.filter(
       ({
+        notation,
         startup,
         active,
         recovery,
@@ -21,7 +22,8 @@ export const filterAttacks = (attacks: AttackData[], searchQuery: string) => {
           Number(cancelAdvantage) === Number(searchQuery) ||
           Number(hitAdvantage) === Number(searchQuery) ||
           Number(blockAdvantage) === Number(searchQuery) ||
-          Number(flawlessBlockAdvantage) === Number(searchQuery)
+          Number(flawlessBlockAdvantage) === Number(searchQuery) ||
+          notation.includes(searchQuery)
         )
       }
     )
