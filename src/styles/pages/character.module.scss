@@ -15,6 +15,10 @@
   h1 {
     font-family: $font-family-custom;
   }
+
+  @media (max-height: 812px) {
+    height: 140vh;
+  }
 }
 
 .characterContainer {
