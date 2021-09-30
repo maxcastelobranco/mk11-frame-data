@@ -1,0 +1,47 @@
+@use "../../../../styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 2rem;
+
+  > button {
+    font-family: Roboto Condensed, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $light;
+    padding: .5rem;
+    border: $default-border;
+    border-radius: 2px;
+    position: relative;
+
+    transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      bottom: -12px;
+      right: 50%;
+      transform: translate(50%,-50%);
+      border: $default-border;
+      background-color: $light;
+      opacity: 0;
+      clip-path: polygon(50% 50%, 100% 50%, 50% 100%, 0% 50%);
+      transition: opacity 250ms ease;
+    }
+  }
+}
+
+.activeButton {
+  color: $text!important;
+  background-color: $light;
+  box-shadow: $light-shadow-large;
+
+  &::before {
+    opacity: 1!important;
+  }
+}

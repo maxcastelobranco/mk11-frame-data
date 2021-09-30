@@ -34,7 +34,7 @@ a {
 *, *::before, *::after {
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: $yellow $gray-dark;
+  scrollbar-color: $gray-dark $text;
 }
 
 * {
@@ -44,11 +44,11 @@ a {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $yellow;
+    background-color: $gray-dark;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: $gray-dark;
+    background-color: $text;
   }
 }
 

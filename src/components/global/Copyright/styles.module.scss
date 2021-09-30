@@ -3,8 +3,23 @@
 .container {
   padding: 0 4rem 2rem 4rem;
   text-align: center;
-  color: $yellow;
   margin-top: auto;
   max-width: 1200px;
   align-self: center;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.light {
+  margin-top: auto;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  padding: 2rem 4rem;
+  color: $light;
+  background-color: rgba(0,0,0,.85);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  box-shadow: $light-shadow-small;
 }

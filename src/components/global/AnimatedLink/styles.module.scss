@@ -1,0 +1,67 @@
+@use "../../../styles/variables" as *;
+
+.container {
+  font-family: $font-family-custom;
+  padding: 8px 16px;
+  color: $light;
+  position: relative;
+  overflow: hidden;
+  transition: $default-transition 1250ms;
+  transition-property: all;
+
+  &:hover, &:focus {
+    background: $text;
+  }
+
+  &:hover::before, &:hover::after, &:focus::before, &:focus::after {
+    transform: translateX(100%);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: -48px;
+    transform: translateX(-100%);
+    clip-path: polygon(0px 0px, calc(100% - 48px) 0px, 100% 100%, 48px 100%);
+    z-index: 1;
+    transition: $default-transition 1000ms;
+    transition-property: all;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: -48px;
+    clip-path: polygon(0px 0px, calc(100% - 48px) 0px, 100% 100%, 48px 100%);
+    transform: translateX(-100%);
+    z-index: 3;
+    transition: $default-transition 1000ms;
+    transition-property: all;
+  }
+}
+
+.yellow {
+    &::before {
+    background: $yellow;
+  }
+
+  &::after {
+    background: $yellow;
+  }
+}
+
+.white {
+    &::before {
+    background: $light;
+  }
+
+  &::after {
+    background: $light;
+  }
+}

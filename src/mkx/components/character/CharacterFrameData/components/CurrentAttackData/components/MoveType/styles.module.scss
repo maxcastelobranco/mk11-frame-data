@@ -1,0 +1,29 @@
+@use "../../../../../../../../styles/variables" as *;
+
+.container {
+  grid-area: type;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+
+  p {
+    margin: 0 0 .5rem;
+    font-weight: 700;
+    color: $gray;
+  }
+
+  span {
+    color: $light;
+  }
+}
+
+.activeItem {
+  p {
+    text-shadow: $gray-shadow;
+  }
+
+  span {
+    text-shadow: $light-shadow-medium;
+  }
+}

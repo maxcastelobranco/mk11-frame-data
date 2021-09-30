@@ -1,0 +1,83 @@
+@use "../../../../styles/variables" as *;
+
+.container {
+  --ratio:  .8;
+  --height: 150px;
+  width: calc(var(--height) * var(--ratio));
+  height: var(--height);
+  border: $default-border;
+  background: $black-gradient;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 250ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, transparent, #593f13);
+    z-index: -1;
+    transition: opacity 250ms ease-out;
+    opacity: 0;
+  }
+
+  &:hover {
+    box-shadow: $yellow-shadow;
+    &::before {
+      opacity: 1;
+    }
+
+    .imgSm {
+      opacity: 0;
+    }
+
+    .imgLg {
+      transform: translateY(0px);
+      clip-path: polygon(0 0, 100% -75%, 100% 100%, 0 175%);
+    }
+
+    .characterName {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media(min-width: 680px) {
+    --height: 180px;
+  }
+
+  @media(min-width: 1200px) {
+    --height: 200px;
+  }
+
+}
+
+.imgSm {
+  transition: opacity 250ms ease;
+}
+
+.imgLg {
+  clip-path: polygon(0 150%, 100% 100%, 100% 100%, 0 175%);
+  transform: translateY(-32px);
+  transition: $default-transition .75s;
+  transition-property: clip-path,transform;
+}
+
+.characterName {
+  position: absolute;
+  bottom: 4px;
+  left: 20%;
+  right: 20%;
+  font-size: $font-size-sm;
+  font-family: Roboto Condensed,sans-serif;
+  font-weight: bold;
+  color: $light;
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 2px;
+  background: $black-gradient;
+
+  transition: transform 250ms ease-out;
+}

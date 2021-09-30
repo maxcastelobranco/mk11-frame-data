@@ -2,7 +2,13 @@ import React from 'react'
 import Particles from 'react-particles-js'
 import styles from './styles.module.scss'
 
-const CustomParticles: React.FC = () => {
+interface CustomParticlesProps {
+  color?: string
+}
+
+const CustomParticles: React.FC<CustomParticlesProps> = ({
+  color = '#fda90f',
+}) => {
   return (
     <Particles
       canvasClassName={styles.container}
@@ -12,7 +18,7 @@ const CustomParticles: React.FC = () => {
         },
         particles: {
           color: {
-            value: '#fda90f',
+            value: color,
           },
           collisions: {
             enable: false,

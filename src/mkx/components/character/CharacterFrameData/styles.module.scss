@@ -1,0 +1,241 @@
+@use "../../../../styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: 0 2rem 2rem;
+  overflow: hidden;
+  max-height: 70%;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem .75rem;
+    border-radius: 4px;
+    background: $black-gray-gradient;
+    border: $default-border;
+    box-shadow: $dark-shadow-medium;
+    width: 100%;
+    max-width: 1420px;
+
+    button {
+      font-family: $font-family-custom;
+      font-size: $font-size-sm;
+      transition: text-shadow 500ms ease, color 500ms ease;
+
+      @media (max-width: 680px) {
+        font-size: $font-size-sm * .8;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.frameDataSlideWrapper {
+  flex: 1;
+  display: flex;
+  background: $black-gray-gradient;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: $dark-shadow-medium;
+  max-width: 1420px;
+  width: 100%;
+}
+
+.frameDataSlide {
+  flex: 1;
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  section:first-child {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+
+    h3:first-child {
+      text-align: center;
+      position: sticky;
+      top: 0;
+      margin: 0;
+      padding-bottom: .6rem;
+      z-index: 1000;
+    }
+
+    h3 {
+      font-family: $font-family-custom;
+      color: $light;
+      font-size: $font-size-sm;
+      margin: 1rem 0;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+
+      li {
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $light;
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+        border-bottom: $default-border;
+        transition: color 250ms ease, text-shadow 250ms ease;
+        position: relative;
+
+        > span {
+          display: flex;
+          align-items: center;
+          z-index: 100;
+          padding: 0 .5rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: $black-gray-gradient;
+          opacity: 0;
+          transition: opacity 250ms ease;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        &.activeAttack {
+          color: $light;
+          text-shadow: $light-shadow-small;
+          &:before {
+            opacity: 1;
+          }
+        }
+        &.complementaryAttack {
+          padding-left: 1rem;
+        }
+        & > span:nth-child(2) {
+          display: flex;
+        }
+      }
+
+      li + li {
+        margin-top: .5rem;
+      }
+    }
+  }
+
+  section:nth-child(2) {
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 20px 150px 20px 80px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+      "title1 title1 title1 title1 title1 title1 title1"
+      " . type type . info info ."
+      "title2 title2 title2 title2 title2 title2 title2"
+      "fd fd fd fd fd fd fd";
+    gap: 1rem;
+    align-content: space-evenly;
+
+    .moveDataTitle {
+      grid-area: title1;
+      position: relative;
+      &::after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, transparent, $light, transparent);
+        border-radius: 100%;
+      }
+    }
+    .frameDataTitle {
+      grid-area: title2;
+      position: relative;
+      &::after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, transparent, $light, transparent);
+        border-radius: 100%;
+      }
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: $font-family-custom;
+      color: $light;
+      font-size: $font-size-sm;
+    }
+
+    li {
+      cursor: pointer;
+    }
+
+  }
+
+  @media (max-width: 680px) {
+    gap: 2rem;
+    grid-template-columns: unset;
+    grid-template-rows: 1.5fr 3fr;
+
+    section:first-child {
+      padding-right: 0;
+    }
+
+    section:nth-child(2) {
+      padding-top: 1rem;
+      grid-template-rows: 17px 165px 17px 80px;
+      align-content: space-between;
+    }
+  }
+}
+
+.button {
+    color: $gray;
+
+    &:hover {
+      text-shadow: $gray-shadow;
+    }
+}
+
+.activeButton {
+  color: $light;
+
+  &:hover {
+    text-shadow: $light-shadow-small;
+  }
+}
+
+.activeItem {
+  text-shadow: $gray-shadow;
+
+  span {
+    text-shadow: $light-shadow-medium;
+  }
+}

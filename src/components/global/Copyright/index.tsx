@@ -1,13 +1,22 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const Copyright: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-> = (props) => {
+interface CopyrightProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > {
+  light?: boolean
+}
+
+const Copyright: React.FC<CopyrightProps> = (props) => {
+  const { light } = props
   const currentYear = new Date().getFullYear()
+  const classNames = [styles.container]
+  light ? classNames.push(styles.light) : classNames.push(styles.yellow)
 
   return (
-    <footer className={styles.container} {...props}>
+    <footer className={classNames.join(' ')} {...props}>
       <small>
         &copy; Copyright {currentYear}, Max Lourenço Castelo Branco. All other
         trademarks and copyrights are the property of their respective owners.

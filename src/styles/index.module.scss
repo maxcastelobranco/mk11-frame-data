@@ -1,0 +1,26 @@
+@use "../styles/variables" as *;
+
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #000 url("/home-bg.jpg") no-repeat fixed center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 48px;
+    color: $light;
+    font-family: $font-family-custom;
+    padding-top: 4rem;
+  }
+
+  & button:first-of-type {
+    margin-top: 8rem;
+  }
+
+  & button + button {
+    margin-top: 2rem;
+  }
+}

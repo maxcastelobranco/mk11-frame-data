@@ -1,0 +1,94 @@
+@use "../../../styles/variables" as *;
+
+.container {
+  --size: 40px;
+  --input-width: calc(var(--size) * 5);
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
+  border: $default-border;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+  margin-left: 1rem;
+  position: relative;
+  transition: width $default-transition .75s;
+
+
+  &:focus-within {
+    width: calc(var(--input-width) + var(--size));
+
+    input {
+      opacity: 1;
+      clip-path: polygon(0 0, 100% -75%, 100% 100%, 0 175%);
+    }
+
+    button {
+      background: $light;
+      svg {
+        path:nth-child(2) {
+          fill: $text;
+        }
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: $font-size-m;
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+
+    border: 0;
+    padding: 0 .5rem;
+    opacity: 0;
+
+    color: $light;
+    height: var(--size);
+    width: var(--input-width);
+    background: $gray-gradient;
+    clip-path: polygon(0 150%, 100% 100%, 100% 100%, 0 175%);
+    transition: opacity 750ms ease, clip-path 750ms $default-transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $light;
+      font-size: $font-size-sm;
+      font-family: $font-family-custom;
+    }
+  }
+
+  button {
+    z-index: 100;
+    width: var(--size);
+    height: var(--size);
+    margin-left: auto;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 500ms ease;
+    transition-delay: 750ms;
+
+    svg {
+      path:nth-child(2) {
+        fill: $light;
+        transition: fill 500ms ease;
+        transition-delay: 750ms;
+      }
+    }
+  }
+
+  @media (max-width: 385px) {
+    --input-width: calc(var(--size) * 3);
+  }
+}

@@ -16,8 +16,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preload" as="image" href="/character-bg.png" />
-          <link rel="preload" as="image" href="/roster-bg.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
@@ -48,7 +46,7 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="theme-color" content="#fda90f"/>
+          <meta name="theme-color" content="#fda90f" />
         </Head>
         <body>
           <Main />

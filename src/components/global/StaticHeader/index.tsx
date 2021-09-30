@@ -2,17 +2,15 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import { useMediaQuery } from '../../../hooks/useMediaQuery'
-import PlatformSelect from '../PlatformSelect'
+import { useMediaQuery } from '../../../mk11/hooks/useMediaQuery'
 
 const StaticHeader: React.FC = () => {
   const maxWidth560 = useMediaQuery('(max-width: 560px)')
-  const minWidth380 = useMediaQuery('(min-width: 380px)')
 
   const logo = maxWidth560 ? (
     <Image
       alt="frame data logo"
-      src="/frame-data-small-logo.png"
+      src="/mk11/frame-data-small-logo.png"
       width={100}
       height={72}
       objectFit="contain"
@@ -20,7 +18,7 @@ const StaticHeader: React.FC = () => {
   ) : (
     <Image
       alt="frame data logo"
-      src="/frame-data-logo.png"
+      src="/mk11/frame-data-logo.png"
       width={240}
       height={72}
       objectFit="contain"
@@ -29,10 +27,9 @@ const StaticHeader: React.FC = () => {
 
   return (
     <header className={styles.container}>
-      <Link href="/" passHref>
+      <Link href="/mk11" passHref>
         {logo}
       </Link>
-      {minWidth380 && <PlatformSelect />}
     </header>
   )
 }

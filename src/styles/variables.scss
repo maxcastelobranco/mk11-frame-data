@@ -22,11 +22,18 @@ $text: #090A0B;
 
 $black-gradient: linear-gradient(180deg,transparent,#000);
 $gray-gradient: linear-gradient(180deg,transparent,$gray-dark);
+$black-gray-gradient: linear-gradient(180deg,transparent,#0A0A0A,#000);
+$light-gradient: linear-gradient(180deg,transparent,$light);
 
 $yellow-shadow: 0 0 8px $yellow;
 $yellow-shadow-small: 0 0 2px $yellow;
 $yellow-shadow-medium: 0 0 4px $yellow;
 $yellow-shadow-large: 0 0 12px $yellow;
+
+$light-shadow: 0 0 8px $light;
+$light-shadow-small: 0 0 2px $light;
+$light-shadow-medium: 0 0 4px $light;
+$light-shadow-large: 0 0 12px $light;
 
 $dark-shadow: 0 0 8px $gray-dark;
 $dark-shadow-medium: 0 0 4px $gray-dark;
